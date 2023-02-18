@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Testimonials Section | CodingNepal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+    @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: #fae5d3;
+}
+::selection{
+  background: rgba(23,162,184,0.3);
+}
+.wrapper{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  padding-top:60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .box{
+  background: #fff;
+  width: calc(33% - 10px);
+  padding: 25px;
+  border-radius: 3px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+}
+.wrapper .box i.quote{
+  font-size: 20px;
+  color: #e67e22;
+}
+.wrapper .box .content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.box .info .name{
+  font-weight: 600;
+  font-size: 17px;
+}
+.box .info .job{
+  font-size: 16px;
+  font-weight: 500;
+  color: #fae5d3;
+}
+.box .info .stars{
+  margin-top: 2px;
+}
+.box .info .stars i{
+  color: #e67e22;
+}
+.box .content .image{
+  height: 75px;
+  width: 75px;
+  padding: 3px;
+  background: #e67e22;
+  border-radius: 50%;
+}
+.content .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.box:hover .content .image img{
+  border-color: #fff;
+}
+
+@@media (max-width: 1045px) {
+  .wrapper .box{
+    width: calc(50% - 10px);
+    margin: 10px 0;
+  }
+}
+@@media (max-width: 702px) {
+  .wrapper .box{
+    width: 100%;
+  }
+}
+    </style>
+</head>
+<body>
+    <h3 style="padding-top:20px;color:#e67e22;">REVIEWS AND RATINGS</h3>
+    <div class="wrapper" style="padding-top:50px; padding-bottom:15px;">
+        <div class="box">
+            <i class="fas fa-quote-left quote"></i>
+            
+            <p><br />
+                FlyFriendly is the best website i have ever come accross. I like how convenient it is.
+                The best from the rest
+            </p>
+            <div class="content">
+                <div class="info">
+                    <div class="name">Manisha</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBIQFBUREhEPERUPEA8REA8PDxEPDxIQGBQZGRgUGBYcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDszPy40NTEBDAwMEA8QGRERGTEhGiExNDQxMTExNDQxNDE0PzExMTExPzExNDQ0MTE0NDExMTE0MTQ0PzExQDQ0MTQ/NDQ/NP/AABEIAMgAyAMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcBAgj/xABDEAACAQMBBAcGBAQDBgcAAAABAgADBBEFEiExQQYTMlFhcZEHFCJCUoGhscHRI2Jy8DNDkhUkgqLS4Rc0U1RjssL/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAgMEAQX/xAAlEQADAAICAgIBBQEAAAAAAAAAAQIDESExEkEEUTIUIkJhcRP/2gAMAwEAAhEDEQA/AOzREQBERAEREAREQBETG9RV3sQPEnEA+4mk2pUx82f6VJmFtYTkrH0Ekop9Ii7leyTiRX+2F+hvUT6GrpzVh6Gd/wCV/Q85+yTiaSalSb5sf1AibKVFbgQfEHMi5pdo6qT6ZliInDoiIgCIiAIiIAiIgCIiAIiIAiJiq1VQbTEADmYB9zTudQRN2dpvpH690jrzUWf4Uyq947R/aaE0Rgb5oprL9G7X1N24YQdw4+s02Yk5JJ8Sczye48D6TUomekUunXbPImOvXSmrPUdERBl3dlRFHiZTNS6fKSUsqJrkbjXq7VO3HkOJ/CKuZ7OzDrou8TlNxrep1T8d31IPyW1NUA+/H8Zq9Zd/+/vc9/Wt+8peefSJrE/bOwT1WIOQSPEHE5LR1LUKZyl/WbHy11Woh9cyWsundzS3XdstRRxrWpw48Sh3flJLNFcM48dLo6hQ1N144cePH1knbagj7s7LfSf075T9I1i3vF26FQPs9tD8D0/60O8flJCcrDNLchXUvTLbEgbPUWTc+WXv+YfvJqlVVxtKQQeYmSocvkvmlXRliIkSQiIgCIiAIiIAiJirVAilm3BRkwD4uK6012m8gOZPdK/dXLVDltwHZUcBF3ctUbaO4Dcq9wmGbcWFJbfZmu98LoSM1/W6VhT6yqSSx2adNe3Uf6R+p5SRdwoLMQoVWZmPAAbyZyO+v2v7h7ps7Ck07ZG7KUgeOz3nj9/CSy34rjs5E7ZuXvSLULo56wWaHs06AzV2fFzv/LykfsVs598vSfq94f8AeZYmN3Te2y9TK6RhuRXr7KXF1Wr06Z2kp1G+fvJ5zKqgDAAAHAAYAnsTjbfZJJLoRETgEREA1yr0nFxbsadZDtKV4OOasOYM6j0e1infUFrJ8J7FWnnfTqjiv6jwnNps9HNR9yvEJOKN6y06o5JV+R/X8CZdhvxrT6ZC58ltHVJmtblqZyu8HtKeBmGJsqVS0zMm09os1tcLUXaX7jmDM0rNpctTbaG8Hcy94lio1A6hl3gjImDJjcv+jVFeS/szRESsmIiIAiIgHzILVLrbbYHZU78czJHUbjYU47TfCv7yvzRgjb8mU5a9IRETaZys+0C9NGydVOHuXS3THH4+3/yA+sotFAiqg4KqqJN9P7rrbujbjetshruP537C+gHrIeYc1eVf4asa1IiIlJMREQBERAEREATXv6G2jLzxtIRycbxNiIB0joxqPvVrRrE5ZkVX/rT4H/EZ+8lZRfZrc7PvNqfkqCvTB+h9x/EL6y9T0MdeUpmSlqmhN/S7rYbYPZY7s8jNCJ24VLTE05e0WyezS06520GeK7m/ebs85pp6ZrTTW0exETh0REx1W2QW+kEmAQWqVtp8Z3J8P35zSnrNk5PzHJnk9LHPjKRjp7bYmvf3aUKb1qhASkhdz4D5fM8PvNic06Ya57/U90onNvQfar1FO6tVHBAeaD8Tv7pzJSlbOxO2Q1Cq9Z6l1U7d05qEfSnyL6TPAH2xwETz29vZqEjtYqher4jDhzjkg4yRlg9nGkpd3FzXqIKlKhSNoiuMo7uPj/5M/wCucb0tnUtvRXlYEZGCDvBHMT2bvSXo/U0mpuD1LOo/8Gsd5ok/5T/oefnkTRVsjIwcjII5wmmtoNNPTPYiJ04IiIAiIgGfQbv3a/oVCcJcA2znl8fYPridWnG7y36xCoOGBVkYcnHCdF6Ia8L6h8eFr0MU7hOB2/8A1PI/nmasFr8SnLP8ifiImooN3Sq2w+OT7vvylglTVsEEcjkS0Un2lDd4BmH5E6pP7NGF7WjLERKC48mlqj7NNvHC+pm7IzWj8Kjvb9JKFukiNvUshYiamq36WtGpXfs0ULlfqPJPucD7z0m9LZkS2Vbp5rrJixoMRUrLtV3U76VE/L4Fvy85UqFFaahFGAB6/wA0x2xeoXuKp2qly7VHY8s8APCbE8/JTqtmqJUrQiIkCRgvbjq0ZuJ4IBxLnhOwdCdG9wsqVFhh2U1a5/8AmfeR9hgfac66E6T7/eq7DNDTyKjk9l6/yL44IyfLxnZZVdei7HPsw3NtTrI1OoiOjqVdHXKMO4ico6S9Ca9gWq2ge5tslnodu4ojw+tPx7++ddiQmnJOpTOA21ylQZRge9eY8xMs6d0i6C2l6xqoGta539fQCjab+dOD+e4+MoOqdFdTs8lqIvKY/wA613uB3lOP4Hzls0mU1LRHxNWnf02OztbDDcyONhwfIzakyAiIgCfFK6qWlVbuj2kGzWp8qtLmD/fIHlPuJ1Np7Qa2tHU9Nv6d1SSvSbaSou0p5jvU9xB3GbU5r0K1H3W490Y4o3h2qWezTufp8mG70nSpvx15LZlufF6EsGlvtU18Mr6GV+TWin4WHc36Sr5C3OyWJ/uJSIiYzSeSK1zsr/UfykrIvWx8Knub9JPF+aIX+LIaUz2l1/4Nvbjd7zcqX8UQZ/Mj0lzlC9pI/i2J5bdwv32Um3K9SzPC/civxETAajxmAGTgAbyTwE+dOt6+oP1FohYn/ErsGWjST6y35czykh0Z0T/ad0aT5FtbKj3AU4NRyfgpZ8d/2Bl26CU0oXWqWqKEWneI6Igwio6tjA7sYkKrROZ21ssXRzRKen26W1LeF+J3Iw9Sqe258+7kABJSIlLey9LSETlvtUvNSp3FEW73KUDTUo1ttjbr7RyGKc+xgGdB0B67W1BrkYrtQQ11xgh8b8jke/xzOudLZxVt6JGIMpXtQu7yjao1oaqA1cXFShtdaiY3bxvAJ4keHfOStvR2npFj1XQrS8GLi2o1f5nTDjycYYesqF97MKO9rS6uLUneEc9fS/HB/EyU9m1zeVbIPedYzdYwovWDCq9HAwxzvO/IBPES2ZnduXrZBJUt6OPXnQrVaG9Ut7pR81Gp1bn/AIXxIS6Fxb/+Ys7ujs8WakxQf8fCd9lY9o911WmXOCQaiJRUA8S7AY9MyybbemRqEltHI7e/p1Dsq28jIVhgnym1Om6p0PpXVjStmRUrW9tSShWVcPTqIg3ZHFSdxH34zlNjVZ0+Pc6sUcdzocGSVJ9EGmjzUUJTaTIemwqIw4h03zrej3wuqFKuP86mjkdzkbx65nLSuRjvGJc/ZtVLWKqd/VV7hB5ZyP8A7zV8euWijKuNlrkxofZb+oflIeTWij4WPe36S35H4leL8iUiImE1Hk0tVTapt4Yb0M3J8VV2gQeYIM7L1SZGltNFWlQ9pNoXtkrrvNrXRzj6H+B//wAS4MuDg8jgzBdWyVkelUGUqI6OPAjE9Gl5S0ZZfjWzk6tkZG8EZB8J7MK272tR7Sr2qDYRvrpHsMPt/e6Zp57TT0zWnsu3siC7F6d20bwBu/Gxu/Wb9D/d9cqrwXUNPRx41KJwfwRpTuhmtrp143WkLb36ojuT8FOsnYc9w3kE+PhLh7QVNA2mpoCTYXK9bs7821Tc/wBv+uVUuX/ZbL4/wusT4p1FYBlIZWUMjDgykZB9J9youQ9ftPlmCjJIAAySTgAd8+prX9qtelUosWVa1N6bMhwwDqRkeO+AyL6N9IBqJrPTpMtClV6uhcM264x22C43AHH+rvk7K50T6P19PU03vXuaSoEoUTRSklMA5zkEkk5ljitb4Iz1yIiIJiUrpwferrT9OG8VLn3quO6jR7/P45dT/eZSeiP+/X15qZ301PuVmTzpJ22Hmcf6jOz9kK54Lq1QL8TYAX4mJ5AbzPz7YPt9ZU4CrXr1F8i+ROme0rpAKFD3OkwNxersYU76due257sjIH3PKc6oUwiqg4KqgS2FpbKcjTekfct/szTFkW+u6uHHluH6Sk31XYRn7lOPOdM6J2Xu9lb0yMMKSuw/nf4z+c1YFzsz5X+3RMSwaWmzTXx2m9TIBVyQBzOBLRSTZUL3ACT+S+EiOFctmWIiZDQIiIBXtUo7L5xuff8AfnNKWDUbfrFOO0u9f2lfm7BXlOvoy5J0yu9LujnvqK9MhLmgGNFzuDj6H8DyPI+BM57TrsHNGqjUqyHZek4wc+HeJ2SROuaBb3y7NZPiUfBWT4atPyPMeB3RkwquV2dm9cM5rVpq6lWAIPEGZEvr1KL2iXXWW7oyGhcotQKh5ITvHhjhPvV9MuNOYCsetoO2yl0i8D9Ljkf7yZjz95jqXL00aJra2i++y/Xetomxqn+NZDCZO+pbfIR37OceWzL5OBh6tGol1btsVqByh5OOaOOYI3Tr3RTpNR1Kntp8FVABXt3Px03/AFQ8j675Tc+0XRXGmT0p1z0wr2rut3pl4iB3CXFts3NJkzuY4xg48ZccTwfceUrTS7RY030ym/8AiTYckvmP0i0bP5zDV6Qalfjq7CxrWqvuN/fhUFNO9E5n18pec+cTu0vRHxftmOgjKqh222CIHfZ2dtwN7Y5ZO/EyRNLVtTpWdJriu4REGSebHkqjmx5Cc7ZLpFc9o+v+6WppUyevvA9Kio7ap87/AGBwPE+Epth0zuba2p2lnZpQ6tNjr7iptkvxepsAAZJJO/Mib6/qX9w95WBUuNm3pZ2hSojgPPmTzJJnkumUlplFU29oxojszVqrtWrVTtVKzHJP8o7hMkTHcVxTVnbgoz5nukyBksLH326o2vFFbrrg91JOX34fcTrv4eEq3QTRmtqBrVBitdlXfI3onyJ6bz5+EtM24Z8Z59ma35UbulUdp88k3/flLBNLTbfYUZ7TfE37TdmXLXlTZfE6R7ERKyYiIgHkgdUtdhtsdljv8DJ6Y61IMpVt4IwZKKc1sjU+S0VaJmu7ZqbbJ3g71bvEwz0ZpUtoyNNPTMF7aU66PSqKGSohR1PMfuOI8ZyG3pNSerbudo21Z6W13gNuM61qmo0rWk9aqwVEGd53ueSp3kzkts71DUruMNc1XqsvcCdyzNn8ePsuxbNiY9h0da9Co9Csm9aqHGf5XHMTJEzFxctD9pKrinqNNqTcBdUVZ7d/EqN6/bI8BL3p+qW90u1Qr0aoPOm6ufuOI+4nC7y4CLvG0W+FExku/IYlr0ToFQ6hGuVcXD7Tu1Ko1M088EGN2788wsPm+CTy+K5OrYPcfSY6jhBlyFA4s52QPuZzwdC0G5L/AFRB9Iu2x+U9PQSzf/Fe8rkgjNa5ZseOJ1fFofqZ+iY1zp/Y2uUpv73V4LRtjtjP879kfifCc31bUrnUagq3ZARDmjaIf4VPxPe/if8AtNWrp7WFZrSoADnaoVguBVpHgfPw+0zSChS9ew7dIRESRETZ6N6Z7/dAOM0LMipVB4VKvyJ+/gD3zWll9nV9bUrVletRp1TXqvXWpURHznAO/lgfnLMSTrkjbangvEz6MyVqrqDte7GmHx2Q7LkL5gYJHiJQOkvTumivTsiKzhW27gDNGiPqBPbPdy8+EuXsu05qGnpUqZ6y8d7p2bex2+wSe/YCn7y7NlWvFFcQ290XSIiZC8REQBERAEREA1rm3FRSpyMjcw3FT3icj6YvrOnMStRatu3ZuVtqZemP5wBuPjjHlOxz4q0lcFWAIO4gyU3U8J8EXKfJ+bjVN0wq17l7px2A7YRPJOU28ec6brfs/s6rF/dwCd5egzUXHmF3HzxK8fZ5aZ3Vr0D6RWX/AKZYsbvlPZHyU8NFQd1UZYhfFjiY7eq9w3V2tJ7h+ewvwL4s/ACX606DafTOTSesRzr1Hcem4Sw29ulJdimiU0HBERUT0Esn47/kyDzL0Vbox0Q93cXN0y1a4GUVd9Gj/R3t48uXfLdETTMqVpFVU6e2IiJIiRXSDQ6V/S6t8qynapVlHxU37x4d45zml5SrWT9Tdrsk/wCHXX/CqD6ge/8AszsE176zp3CGnWRKiNxRxkeY7j4iU5MSrn2WRka4OVRLBqHQN6eWsrjC8Rb3O9R4I4/UfeQlbStRp9uxqPj56DrVB9MzJWOp7ReqT9mKYKtnTc5amjHvI3mbaafftuXTdQJPfRZB6kSb0n2fajdke87FjSPaUMtS5cdwA3D7n7GQJEN0a0I6ncLaouzb0WD3lRBhAoO6mD3nh6nlP0BTphAFUBQoCqoGAAOAE0NC0WhYUVoW6BEXeTxZ25sx5kyUnDoiIgCIiAIiIAiIgCIiAeTSubBKm/Gy31D9e+bs8nU2ntHGk+GQFbTHXhhh4cfSabKQcEEeBGJbJjemrbiAfAjMun5FLtbKqwp9FWiWBtNpn5ceTETC2jpyZh6GWr5Evsg8VELEmP8AY6/W/os+ho6c2Y+gkv1EnP8AlRCz1VJOACfADMn002kvy5/qYmbKU1XgAPADEg/kr0iSwv2yDoaY7cQFH83H0knbaeib8bTfU36d03YlFZarhstmEj2IiVkxERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAP/2Q==" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-quote-left quote"></i>
+            <p><br />
+                Good service...
+                During pandemic, EMT helped its customer with the refund within the stipulated time
+            </p>
+            <div class="content">
+                <div class="info">
+                    <div class="name">Sai</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOtbCOB_jYWENmOFX7WQRI07Rc4MwuojJLKmNgWkStX6iqjYKMLLxlBxnI9S9um-eBos4&usqp=CAU">
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <i class="fas fa-quote-left  quote"></i>
+            <p> <br /> I have tried this application for my travel and overall satisfied with services and support from team.</p>
+            <div class="content">
+                <div class="info">
+                    <div class="name">Teja</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="https://previews.123rf.com/images/jemastock/jemastock1906/jemastock190617793/124340525-businessman-avatar-cartoon-character-portrait-vector-illustration-graphic-design.jpg" alt="">
+                </div>
+            </div>
+        </div>
+       </div>
+        
+        <div class="wrapper">
+            <div class="box">
+                <i class="fas fa-quote-left quote"></i>
+                <p> <br />Great service with pocket friendly rates! Great customer service and 100 Satisfaction</p>
+                <div class="content">
+                    <div class="info">
+                        <div class="name">Rushika</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUfhj5Hs4xR6brhqF1ySRZyl-hekyHnGWTlcnP1nu3bhAos15DnbfmVimgLMSMP8UHQe4&usqp=CAU" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-quote-left quote"></i>
+                <p> <br />I like this app for bus booking. Buses are available at cheap prices and coupons are also very good.</p>
+                <div class="content">
+                    <div class="info">
+                        <div class="name">Sirisha</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtpwe4gV2OYx9BiAF9gOcFNsP9MlSaWMGdu7LDDFurkFACMu3Fi_BrirlRTpojJT3oaHU&usqp=CAU" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-quote-left  quote"></i>
+                <p><br />Thanks for the information and update on the refund! Really appreciated! Very polite and helpful information</p>
+                <div class="content">
+                    <div class="info">
+                        <div class="name">Vamsi</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg4LYVTx7XNNTAII4DPIECKEJbY1DuqTx0DgTeBgmyMIQklWGRUFV1_uRkuD19LJUNfKM&usqp=CAU" alt="">
+                    </div>
+                </div>
+            </div>
+</div>
+</body>
+</html>

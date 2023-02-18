@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALR-02", "ALR-02.csproj", "{A2CEEBB4-4448-4ADF-B852-F19CD3428947}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C57BA32-8BD9-4ED1-B2C7-F050053C1E9A}
+	EndGlobalSection
+EndGlobal

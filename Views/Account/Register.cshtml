@@ -1,0 +1,198 @@
+﻿@model ALR_02.Models.UserModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register page in HTML</title>
+</head>
+<style>
+
+    bodyCls {
+        font-family: Arial;
+        background: -webkit-linear-gradient(to right, #155799, #159957);
+        background: linear-gradient(to right, #155799, #159957);
+        color: whitesmoke;
+        padding-top: 150px;
+    }
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding: 15px 18px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #030804;
+        color: white;
+        padding: 14px 20px;
+        border-radius: 5px;
+        margin: 7px 0;
+        width: 100%;
+        font-size: 18px;
+    }
+
+        button:hover {
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+    .FormCls {
+        width: 30rem;
+        margin: auto;
+        color: black;
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: #fdf2e9;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+    }
+
+    .headingsContainer {
+        text-align: center;
+        //padding-left: 80px;
+    }
+
+    .mainContainer {
+        padding: 16px;
+        // padding-left: 80px;
+    }
+
+    .subcontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+        .subcontainer a {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+    span.forgotpsd a {
+        float: right;
+        color: whitesmoke;
+        padding-top: 16px;
+    }
+
+    .forgotpsd a {
+        color: rgb(74, 146, 235);
+    }
+
+        .forgotpsd a:link {
+            text-decoration: none;
+        }
+
+    .register {
+        color: black;
+        text-align: center;
+    }
+
+        .register a {
+            color: rgb(74, 146, 235);
+        }
+
+            .register a:link {
+                text-decoration: none;
+            }
+
+    @@media screen and (max-width: 600px) {
+        .FormCls {
+            width: 25rem;
+        }
+    }
+
+    @@media screen and (max-width: 400px) {
+        .FormCls {
+            width: 20rem;
+        }
+    }
+</style>
+<div style="padding-top:50px;"></div>
+
+<body class="bodyCls">
+
+    <form action="" class="FormCls" method="post">
+        <!-- Headings for the form -->
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            <div class="container">
+                <div class="headingsContainer">
+                    <h3>Sign Up</h3>
+                </div>
+
+                <!-- Main container for all inputs -->
+                <div class="mainContainer">
+                    <!-- Username -->
+                    @* <label for="username"> Username</label>
+                        <input type="text" placeholder="Enter Username" name="username" required>*@
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Username)
+                        @Html.TextBoxFor(m => m.Username, "", new { @class = "form-control", @placeholder = "UserName" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <br>
+                    <!-- Username -->
+                    @*  <label for="EmailId"> EmailId</label>
+                        <input type="text" placeholder="Enter EmailId" name="EmailId" required>*@
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailId)
+                        @Html.TextBoxFor(m => m.EmailId, "", new { @class = "form-control", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.EmailId, "", new { @class = "badge badge-danger" })
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="badge badge-danger">@ViewBag.error</span>
+                        }
+                        <br>
+                        <!-- Username -->
+                        @*<label for="Password"> Password</label>
+                            <input type="text" placeholder="Enter password" name="password" required>*@
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                        </div>
+                        <br>
+
+                        <!-- Password -->
+                        @* <label for="pswrd"> Confirm Password</label>
+                            <input type="password" placeholder="Confirm Password" name="pswrd" required>*@
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword)
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confim Password" })
+                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
+                        </div>
+                        <!-- sub container for the checkbox and forgot password link -->
+                        <div class="subcontainer">
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+
+
+                        <!-- Submit button -->
+                        <button type="submit">Sign Up</button>
+
+                        <!-- Sign up link -->
+                        <p class="register">Already have an account?  <a href="#">Login here!</a></p>
+
+                    </div>
+                </div>
+
+
+            </div>
+        }
+    </form>
+</body>
+</html>
