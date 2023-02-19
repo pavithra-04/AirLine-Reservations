@@ -11,7 +11,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
     <title>Register page in HTML</title>
 </head>
 <style>
@@ -155,6 +156,7 @@
                             <span class="badge badge-danger">@ViewBag.error</span>
                         }
                         <br>
+                        <br />
                         <!-- Username -->
                         @*<label for="Password"> Password</label>
                             <input type="text" placeholder="Enter password" name="password" required>*@
@@ -164,7 +166,7 @@
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
                         </div>
                         <br>
-
+                      
                         <!-- Password -->
                         @* <label for="pswrd"> Confirm Password</label>
                             <input type="password" placeholder="Confirm Password" name="pswrd" required>*@
