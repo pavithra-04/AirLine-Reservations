@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALR-02", "ALR-02.csproj", "{A2CEEBB4-4448-4ADF-B852-F19CD3428947}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirLine-ClassLibrary", "..\AirLine-ClassLibrary\AirLine-ClassLibrary.csproj", "{7F02211E-0906-45AF-B625-26DEEFE5807C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2CEEBB4-4448-4ADF-B852-F19CD3428947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F02211E-0906-45AF-B625-26DEEFE5807C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F02211E-0906-45AF-B625-26DEEFE5807C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F02211E-0906-45AF-B625-26DEEFE5807C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F02211E-0906-45AF-B625-26DEEFE5807C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

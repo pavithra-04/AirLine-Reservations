@@ -1,4 +1,6 @@
-﻿@model ALR_02.Models.UserModel
+﻿@model AirLine_ClassLibrary.RegisterModel
+
+@using System.Web.Mvc.Html;
 
 @{
     ViewBag.Title = "Register";
@@ -166,7 +168,7 @@
                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
                         </div>
                         <br>
-                      
+
                         <!-- Password -->
                         @* <label for="pswrd"> Confirm Password</label>
                             <input type="password" placeholder="Confirm Password" name="pswrd" required>*@

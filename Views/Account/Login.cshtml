@@ -1,6 +1,4 @@
-﻿@model ALR_02.Models.LoginModel
-
-
+﻿@model AirLine_ClassLibrary.LoginModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +54,7 @@
 
     .headingsContainer {
         text-align: center;
-       // padding-left: 80px;
+        // padding-left: 80px;
     }
 
     .mainContainer {
@@ -133,7 +131,7 @@
                 <div class="mainContainer">
                     <!-- Username -->
                     @* <label for="EmailId">Your EmailId</label>
-                    <input type="text" placeholder="Enter EmailId" name="EmailId" required>*@
+                        <input type="text" placeholder="Enter EmailId" name="EmailId" required>*@
                     <div class="form-group">
                         @Html.LabelFor(m => m.EmailId)
                         @Html.TextBoxFor(m => m.EmailId, "", new { @class = "form-control", @placeholder = "Email Id" })
@@ -144,7 +142,7 @@
 
                     <!-- Password -->
                     @* <label for="pswrd">Your Password</label>
-                    <input type="password" placeholder="Enter Password" name="pswrd" required>*@
+                        <input type="password" placeholder="Enter Password" name="pswrd" required>*@
                     <div class="form-group">
                         @Html.LabelFor(m => m.Password)
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })

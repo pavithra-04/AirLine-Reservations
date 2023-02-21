@@ -17,5 +17,9 @@ namespace ALR_02.Controllers
         {
             return View();
         }
+        public ActionResult Payments()
+        {
+            return View();
+        }
     }
 }
