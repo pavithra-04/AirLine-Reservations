@@ -1,0 +1,978 @@
+﻿
+<!--@{
+    ViewBag.Title = "Booking_Form";
+}
+
+
+<style>
+    /*! CSS Used from: https://www.justfly.com/font-awesome/css/font-awesome.min.1548881590.css ; media=all */
+@@media all{
+.fa{display:inline-block;font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-rendering:auto;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.fa-plus:before{content:"\f067";}
+.fa-minus:before{content:"\f068";}
+.fa-chevron-down:before{content:"\f078";}
+.fa-anchor:before{content:"\f13d";}
+}
+/*! CSS Used from: https://www.justfly.com/css/index.1548881590.css ; media=all */
+@@media all{
+.jf-icon{line-height:1;}
+.jf-icon:before{font-family:"jf-dashboard"!important;content:attr(data-icon);font-style:normal!important;font-weight:normal!important;font-variant:normal!important;text-transform:none!important;speak:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+.jf-plane:before{content:"\68";}
+.jf-car:before{content:"\72";}
+.jf-building:before{content:"\73";}
+div,span,p,a,img,i,ul,li,form,label{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+ul{list-style:none;}
+input,button{font-family:inherit;}
+a{text-decoration:none;color:#0C6AA0;}
+a:hover{color:#333;text-decoration:none;}
+.general-container{width:95%;max-width:1170px;margin:auto;}
+.mobile-only{display:none;}
+.display-table{display:table;width:100%;table-layout:fixed;}
+.display-table .column{display:table-cell;}
+.select-wrapper{display:block;position:relative;text-decoration:none;outline:0;overflow:hidden;width:100%;}
+.styled-select{opacity:0;position:absolute;left:0;right:0;top:0;bottom:0;height:100%;min-width:100%;line-height:100%;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;filter:alpha(opacity = 0);}
+.select-wrapper .fa,.select-down-arrow,.select-first-text{display:inline-block;vertical-align:middle;}
+@@media only screen and (max-width: 1024px){
+input{-webkit-appearance:none;border-radius:0;}
+input[type=checkbox]{-webkit-appearance:checkbox;}
+}
+.form-wrap-roundtrip .form-fields-wrap-multi{display:none;}
+.inline-search-form{background:none!important;margin-bottom:10px;}
+.hp-form-wrap{position:relative;z-index:2;}
+.form-fields-wrap-multi-container .form-field-from-date{width:20%;}
+.form-fields-wrap-multi-container .form-field-to,.form-fields-wrap-multi-container .form-field-from{width:40%;}
+.form-fields-wrap,.form-fields-wrap-multi{position:relative;}
+.form-fields-wrap-multi,.form-fields-wrap-multi + .form-fields-wrap-multi,.form-filters-wrap.flight-class{margin-top:10px;}
+.form-field-segment{position:absolute;width:265px;right:-265px;top:50%;margin-top:-13px;text-align:left;}
+.form-field-segment .multicity-btn{color:#fff;display:block;margin-left:15px;padding:0 5px;font-size:13px;font-weight:700;line-height:25px;text-align:center;cursor:pointer;}
+.form-field-segment .multicity-btn:hover{color:#ffe1a0;}
+.form-field-to,.form-field-from{margin:0;float:left;width:30%;position:relative;}
+.form-field-to-date,.form-field-from-date{margin:0;float:left;width:20%;position:relative;}
+.main-search-form  input:not([type=checkbox]),.form-field-from input:not([type=checkbox]),.form-field-from-date input:not([type=checkbox]),.form-field-to input:not([type=checkbox]),.form-field-to-date input:not([type=checkbox]){border:1px solid #dcdcdc;border-right:1px solid #fff;width:100%;display:block;-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+.form-field-passengers{text-align:center;position:relative;}
+.inline-search-form .table-wrap > .column{vertical-align:top;}
+.inline-search-form .column.search{font-size:0;width:320px;}
+.form-field-passengers,.form-field-button{font-size:14px;width:50%;display:inline-block;vertical-align:top;}
+.cruises-text,.main-search-form .passenger-toggle,.main-search-form input:not([type=checkbox]){display:block;background:#fff;height:52px;padding-left:15px;padding-right:15px;border:1px solid #e5e5e5;border-right:1px solid #fff;color:#000;font-size:14px;text-overflow:ellipsis;outline:0;}
+.cruises-text{cursor:pointer;}
+.main-search-form .form-fields-wrap-multi-container .form-field-from-date input:not([type=checkbox]){border-right-color:#e5e5e5;}
+.has-icons.main-search-form .passenger-toggle,.has-icons.main-search-form input:not([type=checkbox]){padding-left:35px;}
+.main-search-form .passenger-toggle{line-height:46px;text-align:left;font-weight:normal;}
+.main-search-form input:focus{color:#1b325a;background:#fafcff;}
+.main-search-form .passenger-toggle:focus,.form-field-passengers .passenger-toggle:focus{color:#30456A;}
+.main-search-form input::-webkit-input-placeholder{color:#777;}
+.main-search-form input::-moz-placeholder{color:#777;}
+.main-search-form input:-ms-input-placeholder{color:#777;}
+.main-search-form input:-moz-placeholder{color:#777;}
+.form-field-wrap.destination input,.form-field-from input{border-radius:2px 0 0 2px;}
+.form-field-wrap.cars input,.form-field-from input{border-radius:2px 0 0 2px;}
+.checkin input,.checkout input,.form-field-to-date input,.form-field-from-date input{cursor:pointer;}
+.main-search-form .passenger-toggle span,.form-field-passengers .passenger-toggle span{vertical-align:middle;}
+.form-field-button a.form-field-submit-button,.main-search-form button,.form-field-button button{padding:0 10px;height:52px;line-height:52px;width:100%;display:block;border:none;outline:none;background:#69b524;color:#fff;font-size:16px;font-weight:900;text-align:center;cursor:pointer;text-transform:uppercase;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-border-radius:0 2px 2px 0;-moz-border-radius:0 2px 2px 0;border-radius:0 2px 2px 0;}
+.form-field-button a.form-field-submit-button:focus,.form-field-button a.form-field-submit-button:hover,.main-search-form button:focus,.main-search-form button:hover,.form-field-button button:focus,.form-field-button button:hover{background:#72c525;}
+.has-icons .passenger-toggle:before,.has-icons .form-field-wrap:before,.has-icons .form-field-wrap > a:before{position:absolute;line-height:1;top:20px;left:12px;pointer-events:none;color:#b9b9b9;}
+.has-icons .search-field-wrap.departure-month a:before,.has-icons .search-field-wrap.checkout:before,.has-icons .search-field-wrap.checkin:before,.has-icons .form-field-wrap:before,.has-icons .passenger-toggle:before{font-family:"jf-dashboard";font-size:13px;font-style:normal!important;text-transform:none!important;font-weight:normal!important;}
+.has-icons .search-field-wrap.port a:before,.has-icons .search-field-wrap.cruise-destination a:before,.has-icons .search-field-wrap.cruise-line a:before,.has-icons .form-field-wrap.cars:before,.has-icons .form-field-wrap.destination:before{font-family:Fontawesome;content:'\f041';top:18px;font-size:15px;font-weight:normal;}
+.has-icons .form-field-from:before{content:"\64";font-size:14px;}
+.has-icons .form-field-to:before{content:"\70";}
+.has-icons .search-field-wrap.departure-month a:before,.has-icons .search-field-wrap.checkout:before,.has-icons .search-field-wrap.checkin:before,.has-icons .form-field-from-date:before,.has-icons .form-field-to-date:before{content:"\6e";}
+.has-icons .passenger-toggle:before{content:"\65";font-size:11px;}
+.has-icons .form-field-wrap.cruise-destination a:before{content:'\f21a';font-size:14px;}
+.has-icons .form-field-wrap.cruise-line a:before{content:'\f13d';font-size:14px;}
+.has-icons .form-field-wrap.port a:before{content:'\f1cd';font-size:14px;}
+.search-dropdown{display:none;padding:2px 10px 5px 10px;position:absolute;top:10px;left:10px;width:220px;z-index:1000;text-align:left;background:#FFF;cursor:default;overflow:hidden;outline:0;-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.2);-moz-box-shadow:0 2px 3px rgba(0,0,0,0.2);box-shadow:0 2px 3px rgba(0,0,0,0.2);-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;}
+.passenger-picker{text-align:center;}
+.passenger-type .column{vertical-align:middle;}
+.search-dropdown-toggle .passenger-type,.form-field-passengers .passenger-type{border-bottom:1px dashed #dcdcdc;padding:8px 0;line-height:1;}
+.passenger-type .label{font-size:13px;font-weight:700;vertical-align:middle;text-align:center;color:#455D88;padding:0 10px 0 0;}
+.passenger-type .age{font-size:11px;line-height:1;color:#888;}
+.passenger-picker .picker-button{background:#fff;color:#444;font-size:10px;width:27px;border:1px solid #dcdcdc;cursor:pointer;}
+.picker-wrapper .column{vertical-align:baseline;}
+.passenger-picker .picker-button.remove{-webkit-border-radius:2px 0 0 2px;-moz-border-radius:2px 0 0 2px;border-radius:2px 0 0 2px;}
+.passenger-picker .picker-button.add{-webkit-border-radius:0 2px 2px 0;-moz-border-radius:0 2px 2px 0;border-radius:0 2px 2px 0;}
+.passenger-picker .picker-button:not(.disabled):hover{background:#455D88;border-color:#455D88;color:#fff;}
+.passenger-picker .picker-button.disabled{color:#b5b5b5;background:#fafafa;border-color:#dcdcdc;}
+.passenger-picker .qty{line-height:33px;background:#fff;border-top:1px solid #dcdcdc;font-weight:700;color:#777;border-bottom:1px solid #dcdcdc;}
+.passenger-type .picker{width:90px;}
+.close-passenger-picker{margin:-1px -10px -5px -10px;padding:15px;background:#455D88;text-align:center;line-height:1;font-weight:900;text-transform:uppercase;font-size:12px;color:#fff;cursor:pointer;}
+.form-filters-left{position:relative;}
+.flight-type ul{margin:0 0 10px -5px;padding:0;font-size:0;}
+.flight-class ul{margin-left:-5px;}
+.flight-type .item,.flight-class .item{display:inline-block;vertical-align:middle;text-align:center;margin:0 15px 0 0;padding:0;}
+.flight-class .item:not(.item-hotels-search){display:inline-block;}
+.item-hotels-search input[type=checkbox] + label,.flight-class .item a,.flight-type .item a{display:block;padding:5px;color:#fff;line-height:1;font-size:14px;}
+.flight-type .item a{font-weight:900;text-transform:uppercase;}
+.item-hotels-search input[type=checkbox] + label,.flight-class .item a{font-weight:600;}
+.flight-type .item a.active,.flight-type .item a:hover{color:#ffe1a0;}
+.inline-search-form-remove-segment-container,.inline-search-form-add-segment-container{display:inline-block;}
+.form-field-segment .inline-search-form-remove-segment{display:none;}
+input:focus,button:focus,select:focus{outline:0;}
+.flight-class .select-wrapper .fa,.search-dropdown-toggle > .fa,.form-field-passengers .passenger-toggle > .fa{position:absolute;top:50%;font-size:9px;}
+.search-dropdown-toggle > .fa,.form-field-passengers .passenger-toggle > .fa{right:10px;margin-top:-5px;color:#666;}
+.flight-class .select-wrapper .fa{right:0;margin-top:-4px;}
+.flight-class .select-wrapper{padding-right:20px!important;position:relative;}
+::-ms-clear{display:none;}
+.search-selection-wrap .main-search-form{display:none;}
+.search-selection-wrap .flights.main-search-form{display:block;}
+.search-selection-tabs{font-size:0;margin-bottom:20px;border-bottom:2px solid rgba(255,255,255,0.2);}
+.search-selection-tab{display:inline-block;vertical-align:middle;margin:0 0 -2px 0;padding:12px;cursor:pointer;text-transform:uppercase;font-size:14px;text-align:center;color:#ffffff;font-weight:900;border-bottom:2px solid;border-color:transparent;}
+.search-selection-tab + .search-selection-tab{margin-left:5px;}
+.search-selection-tab:hover,.search-selection-tab.active{color:#FFFACF;border-color:#ffffff;}
+.search-selection-tab .jf-icon,.search-selection-tab span{display:inline-block;vertical-align:middle;}
+.search-selection-tab.cruises .fa,.search-selection-tab .jf-icon{margin-right:8px;font-size:13px;}
+.main-search-form .search-field-wrap{vertical-align:top;position:relative;}
+.search-dropdown-toggle{position:relative;}
+.main-search-form .search-field-wrap.rooms{width:150px;}
+.main-search-form .search-field-wrap.checkin,.main-search-form .search-field-wrap.checkout{width:140px;}
+.main-search-form .search-field-wrap.submit{width:200px;}
+.main-search-form .advanced-search{display:block;color:#fff;font-weight:600;padding:5px;margin:5px 0 -10px 0;font-size:14px;vertical-align:middle;line-height:1;}
+.main-search-form .advanced-search:hover,.main-search-form .advanced-search:focus,.main-search-form .advanced-search:active{color:#FFFFFF;}
+.main-search-form-validation{display:none;position:absolute;z-index:5;left:5px;top:100%;margin-top:-5px;padding:10px 12px;background:#CA5845;color:#fff;font-weight:600;font-size:14px;line-height:1;white-space:nowrap;border-radius:2px;}
+.main-search-form-validation:after{content:'';position:absolute;bottom:100%;left:20px;width:0;height:0;pointer-events:none;border-style:solid;border-width:0 6px 6px 6px;border-color:transparent transparent #CA5845 transparent;}
+.home.index .form-field-segment .multicity-btn,.home.index .item-hotels-search input[type=checkbox] + label,.home.index .flight-class .item a,.home.index .flight-type .item a,.home.index .search-selection-tab{text-shadow:0 1px 1px rgba(0,0,0,.2);}
+@@media only screen and (min-width: 1161px){
+.home .inline-search-form .column.search{width:360px;}
+}
+@@media only screen and (max-width: 1050px){
+.form-field-to,.form-field-from,.form-field-to-date,.form-field-from-date{width:50%;}
+.inline-search-form .table-wrap > .column{display:block;}
+.inline-search-form .column.search{width:auto;}
+.main-search-form input:not([type=checkbox]){border-bottom:0;}
+.rooms .search-dropdown-toggle.passenger-toggle,.form-field-wrap.checkout input,.form-field-wrap.destination input,.main-search-form .form-field-to input,.main-search-form .form-field-to-date input{border-right-color:#e5e5e5;}
+.rooms .search-dropdown-toggle.passenger-toggle{border-radius:0;}
+.form-field-button a.form-field-submit-button,.main-search-form button,.form-field-button button{border-radius:0 0 2px 2px;}
+.search-selection-tabs{margin-bottom:15px;text-align:center;}
+.search-selection-tab{padding:12px 10px;}
+.flight-class ul,.flight-type ul{text-align:center;}
+.flight-class ul{margin:0;}
+.flight-type ul{margin:0 0 10px 0;}
+.form-field-segment{position:static;width:auto;right:auto;top:auto;margin:0;overflow:hidden;}
+.inline-search-form-remove-segment-container,.inline-search-form-add-segment-container{float:left;padding-right:10px;}
+.form-field-segment .multicity-btn{margin:5px 0 10px 0;display:inline;line-height:45px;}
+.main-search-form-field-wrap{display:block;font-size:0;}
+.main-search-form-field-wrap > .column{display:inline-block;font-size:14px;width:100%;}
+.form-field-wrap.destination{width:100%;}
+.main-search-form .search-field-wrap.checkin,.main-search-form .search-field-wrap.checkout{width:50%;}
+.main-search-form .search-field-wrap.submit,.main-search-form .search-field-wrap.rooms{width:100%;}
+.main-search-form .passenger-toggle{border-radius:0 0 0 2px;}
+.form-field-wrap.destination input{border-radius:2px 2px 0 0;}
+.form-field-wrap.cars input{border-radius:2px 2px 0 0;}
+.form-field-from input{border-radius:2px 0 0 0;}
+.form-field-to input{border-radius:0 2px 0 0;}
+.cruises.main-search-form,.hotels.main-search-form{margin-bottom:20px;}
+.flight-class .item.item-hotels-search{width:100%;margin:10px 0 5px 0;border-top:1px dashed rgba(255,255,255,0.4);padding-top:10px;}
+.flight-class .item{margin:8px;}
+}
+@@media only screen and (max-width: 940px){
+.search-selection-wrap.home-page{-webkit-border-radius:0 0 5px 5px;-moz-border-radius:0 0 5px 5px;border-radius:0 0 5px 5px;}
+.main-search-form-validation{margin:0;}
+}
+@@media only screen and (max-width: 875px){
+.search-dropdown{top:10px;left:10%;width:225px;}
+}
+@@media only screen and (max-width: 500px){
+.form-field-segment .multicity-btn,.search-selection-tab,.item-hotels-search input[type=checkbox] + label,.flight-class .item a,.flight-type .item a{color:#444!important;}
+.home.index .form-field-segment .multicity-btn,.home.index .item-hotels-search input[type=checkbox] + label,.home.index .flight-class .item a,.home.index .flight-type .item a,.home.index .search-selection-tab{text-shadow:none!important;}
+.search-selection-tabs{border-bottom:1px dashed #e5e5e5;background:#f5f5f5;margin:0;}
+.search-selection-tab.active{color:#455d88!important;}
+.form-field-segment .multicity-btn,.item-hotels-search input[type=checkbox] + label,.search-selection-tab,.flight-type .item a{font-size:12px;}
+.search-selection-tab{border:0;margin:0;}
+.search-selection-tab + .search-selection-tab{margin:0;}
+.form-filters-wrap.flight-type{border-bottom:1px dashed #e5e5e5;margin:0 0 10px 0;padding-bottom:5px;}
+.flight-type .item{margin:0 5px;}
+.flight-type .item a.active{color:#455D88!important;}
+.flight-type .item a{color:#999;}
+.flight-type ul{margin:10px 0;}
+.flight-class .item.item-hotels-search{border-color:#e5e5e5;}
+.has-icons .search-field-wrap.checkout:before,.has-icons .search-field-wrap.checkin:before,.has-icons .form-field-wrap:before,.has-icons .passenger-toggle:before{left:0;}
+.form-fields-wrap-multi-container .form-field-to,.form-fields-wrap-multi-container .form-field-from,.main-search-form .search-field-wrap.submit,.main-search-form .search-field-wrap.rooms,.main-search-form .search-field-wrap.checkin,.main-search-form .search-field-wrap.checkout,.form-field-passengers,.form-field-button,.form-field-to,.form-field-from,.form-field-to-date,.form-field-from-date{width:100%;}
+.search-selection-wrap.home-page{padding:0 20px;}
+.main-search-form .passenger-toggle,.main-search-form input:not([type=checkbox]){border:0;border-bottom:1px solid #e5e5e5;}
+.has-icons.main-search-form .passenger-toggle,.has-icons.main-search-form input:not([type=checkbox]){padding-left:30px;}
+.main-search-form .search-field-wrap.submit,.form-field-button{margin-top:20px;}
+.flight-type .item{margin:0 7px;}
+.form-field-button a.form-field-submit-button,.main-search-form button,.form-field-button button{border-radius:2px;}
+.form-fields-wrap-multi,.form-fields-wrap-multi + .form-fields-wrap-multi{margin-top:20px;}
+.main-search-form.cruises,.main-search-form.hotels{padding-top:10px;}
+}
+@@media only screen and (max-width: 359px){
+.search-selection-tab.cruises .fa,.search-selection-tab .jf-icon{margin-right:5px;font-size:10px;}
+.search-selection-tab{padding-left:8px;padding-right:8px;}
+}
+.cruises-text{position:relative;line-height:50px;padding-right:25px;padding-left:35px;}
+.cruises-text .ellipsis-wrap{display:block;}
+.cruise-destination .cruises-text{border-radius:2px 0 0 2px;}
+.cruises-text .fa-chevron-down{right:10px;margin-top:-5px;color:#666;position:absolute;top:50%;font-size:9px;}
+@@media only screen and (max-width: 1050px){
+.cruises-text{border-bottom:0;border-right-color:#e5e5e5;}
+.cruise-destination .cruises-text{border-radius:2px 2px 0 0;}
+}
+@@media only screen and (max-width: 500px){
+.cruises-text{border:0;border-bottom:1px solid #e5e5e5;padding-left:30px;}
+.has-icons .form-field-wrap > .cruises-text:before{left:0;}
+}
+.hp-form-wrap.general-container{width:90%;}
+.hp-photo-wrap{background-color:#5c6d7e;padding:35px 15px;background-size:cover;position:relative;}
+.hp-slogan{font-family:"Lato", sans-serif;line-height:1;color:#fff;margin:0 0 10px 0;font-size:26px;text-shadow:0 2px 1px rgba(0,0,0,0.1);font-weight:900;text-align:left;display:none;}
+.hp-slogan.flights{display:block;}
+.hp-slogan strong,.slogan-subtitle strong{font-weight:inherit;}
+.hp-slogan .main{text-transform:uppercase;}
+.slogan-subtitle{margin:5px 0 0 0;font-size:18px;line-height:1.2;font-weight:400;color:#ffffff;}
+.slogan-subtitle strong{display:inline-block;font-weight:inherit;}
+.home-page-recent-items .inner{font-size:0;margin:0 -5px;}
+.mobile-app-promotion{position:absolute;right:0;}
+.mobile-app-promotion a{display:block;border:1px solid #fff;border-radius:2px;padding:12px 20px;color:#fff;line-height:1.1;}
+.mobile-app-promotion a:hover{background:#455D88;border-color:#455D88;}
+.mobile-app-promotion p{margin-bottom:0;font-size:13px;}
+.mobile-app-promotion .app-button-text,.mobile-app-promotion .jf-logo-white{display:inline-block;vertical-align:middle;}
+.mobile-app-promotion .jf-logo-white{width:20px;}
+.mobile-app-promotion img{display:block;}
+.mobile-app-promotion .app-button-text{padding:0 10px;}
+.mobile-app-promotion .app-button-text p{font-family:'Lato', sans-serif;font-weight:900;}
+.mobile-app-promotion  .app-button-text span{font-size:12px;}
+@@media only screen and (max-width: 1050px){
+.hp-form-wrap.general-container{max-width:530px;}
+.hp-slogan{text-align:center;}
+.slogan-subtitle{font-size:16px;}
+.home-page-recent-items{margin-top:0;padding-top:5px;}
+.home-page-recent-items .inner{margin:0;}
+.mobile-app-promotion{position:relative;max-width:200px;margin:auto;margin-bottom:35px;text-align:center;}
+.mobile-app-promotion a{padding:10px 20px;}
+.mobile-app-promotion p{font-size:12px;}
+.mobile-app-promotion .jf-logo-white,.mobile-app-promotion .app-button-text span{display:none;}
+}
+@@media only screen and (min-width: 1024px){
+.hp-photo-wrap{background:url('https://www.justfly.com/images/jf-homepage-bg.jpg') no-repeat center;background-size:cover;background-color:#f5f5f5;padding:30px 0 40px 0;position:relative;}
+.hp-photo-wrap:after{content:'';position:absolute;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,0.3);}
+}
+@@media only screen and (max-width: 1024px){
+.hp-photo-wrap{padding:25px 15px;}
+.hp-slogan{font-size:26px;}
+}
+@@media only screen and (max-width: 875px){
+.hp-slogan{text-align:center;font-size:22px;margin:0 0 20px 0;}
+}
+@@media only screen and (max-width: 600px){
+.hp-photo-wrap{padding:15px;}
+.hp-slogan{margin-bottom:10px;}
+}
+@@media only screen and (max-width: 500px){
+.slogan-subtitle{display:none;}
+.hp-slogan{display:none!important;position:absolute;visibility:hidden;}
+.hp-photo-wrap{padding:0;background:none;}
+.hp-form-wrap.general-container{width:100%;}
+.home-page-recent-items{margin:10px 0 15px 0;padding-top:10px;border-top:1px dashed #e5e5e5;}
+.mobile-app-promotion{display:none;}
+}
+.clearfix:after{content:"";display:table;clear:both;}
+p{margin-bottom:15px;}
+.mobile-only{display:none!important;}
+@@media only screen and (max-width : 1024px){
+.mobile-only{display:block!important;}
+}
+@@media only screen and (max-width: 1023px){
+.search-dropdown-toggle.passenger-toggle{position:static;}
+}
+}
+/*! CSS Used from: https://www.justfly.com/css/index2.1548881590.css ; media=all */
+@@media all{
+.ellipsis-wrap{width:100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.ellipsis-wrap{display:inline-block;vertical-align:middle;width:auto;max-width:100%;}
+.form-field-button a.form-field-submit-button{display:none;}
+.item-hotels-search{opacity:0;margin-top:-1px;-webkit-transition:opacity .5s 1s;-moz-transition:opacity .5s 1s;-ms-transition:opacity .5s 1s;-o-transition:opacity .5s 1s;transition:opacity .5s 1s;}
+.item-hotels-search.after-recent-searches{display:none;}
+.item-hotels-search.before-recent-searches{margin-bottom:3px;}
+.item-hotels-search input{display:none;}
+.item-hotels-search input[type=checkbox] + label{display:inline-block;position:relative;color:#FFF;font-size:14px;font-weight:600;cursor:pointer;padding-left:18px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+.item-hotels-search input[type=checkbox] + label span{display:inline-block;vertical-align:middle;position:relative;height:14px;line-height:15px;}
+.item-hotels-search input[type=checkbox] + label:before{font:normal normal normal 14px/1 FontAwesome;position:absolute;content:"\f096";top:50%;margin-top:-5px;line-height:13px;font-size:15px;left:0;}
+.item-hotels-search input[type=checkbox]:checked + label:before{content:"\f046";}
+@@media screen and (min-width: 876px){
+.item-hotels-search{margin-top:0;}
+.item-hotels-search.after-recent-searches{display:inline-block;}
+.item-hotels-search.before-recent-searches{display:none;}
+}
+}
+/*! CSS Used fontfaces */
+@@font-face{font-family:'FontAwesome';src:url('https://www.justfly.com/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0');src:url('https://www.justfly.com/font-awesome/fonts/fontawesome-webfont.eot#iefix&v=4.7.0') format('embedded-opentype'),url('https://www.justfly.com/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),url('https://www.justfly.com/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),url('https://www.justfly.com/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),url('https://www.justfly.com/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');font-weight:normal;font-style:normal;}
+@@font-face{font-family:"jf-dashboard";src:url("https://www.justfly.com/fonts/dashboard/jf-dashboard.12052017.woff") format("woff"),     url("https://www.justfly.com/fonts/dashboard/jf-dashboard.12052017.ttf") format("truetype");font-weight:normal;font-style:normal;}
+@@font-face{font-family:"Lato";src:url('https://www.justfly.com/fonts/lato/Lato-Regular.woff') format('woff'),     url('https://www.justfly.com/fonts/lato/Lato-Regular.ttf') format('truetype');font-weight:400;font-style:normal;}
+@@font-face{font-family:"Lato";src:url('https://www.justfly.com/fonts/lato/Lato-Bold.woff') format('woff'),     url('https://www.justfly.com/fonts/lato/Lato-Bold.ttf') format('truetype');font-weight:700;font-style:normal;}
+@@font-face{font-family:"Lato";src:url('https://www.justfly.com/fonts/lato/Lato-Black.woff') format('woff'),     url('https://www.justfly.com/fonts/lato/Lato-Black.ttf') format('truetype');font-weight:900;font-style:normal;}
+</style>
+<div class="hp-photo-wrap">
+
+    <div class="hp-form-wrap general-container">
+
+        <!-- mobile app promotion button -->-->
+      <!--@*  <div class="mobile-app-promotion">
+            <a href="/mobile" target="_blank">
+                <div class="jf-logo-white">
+                    <img src="https://www.justfly.com/images/branding/jf-logo-short-white.svg" height="27">
+                </div>
+
+                <div class="app-button-text">
+                    <p>DOWNLOAD OUR APP</p>
+                    <span>For iOS &amp; Android</span>
+                </div>
+            </a>
+        </div>*@-->
+
+
+        <!-- end button -->
+
+        <!--<div class="hp-slogan flights" data-tab-text="search-flights">
+            <span class="main">Find <strong>Cheap Flights</strong> <span class="mobile-break">and <strong>Save</strong></span></span>
+            <div class="slogan-subtitle"><strong>Search</strong> and <strong>Compare</strong> our best deals with over 440+ airlines - <strong>Book now!</strong></div>
+        </div>
+        <div class="hp-slogan hotels" data-tab-text="search-hotels">
+            <span class="main"><strong>Need a place to stay?</strong></span>
+            <div class="slogan-subtitle">JustFly offers <strong>thousands of hotel accommodations</strong> worldwide with <strong>no booking fees!</strong></div>
+        </div>
+
+        <div class="hp-slogan cars" data-tab-text="search-cars">
+            <span class="main">Find <strong>cheap rental cars</strong></span>
+            <div class="slogan-subtitle">Make the most of your travels with <strong>discount car rental deals</strong>.</div>
+        </div>
+
+        <div class="hp-slogan cruises" data-tab-text="search-cruises">
+            <span class="main"><strong>Need a getaway?</strong></span>
+            <div class="slogan-subtitle">JustFly offers a wide catalog of cruise options for all traveller types!</div>
+        </div>
+
+
+        <div class="search-form-selection">
+            <div class="search-selection-tabs">
+                <div class="search-selection-tab flights active" data-tab="search-flights">
+                    <span class="jf-icon jf-plane"></span><span>Flights</span>
+                </div>
+              
+
+            </div>
+            <div class="search-selection-wrap home-page">
+                <form name="air_search_form" action="/flight/search" method="get" class="inline-search-form-form main-search-form flights has-icons" autocomplete="off" data-tab-target="search-flights" data-selected-currency="USD" data-hotels-search="true" _lpchecked="1">
+                    <input type="hidden" name="new_search" value="1">
+
+                    <div class="inline-search-form form-wrap-roundtrip" id="inline-search-form-1">
+                        <div class="form-filters-wrap flight-type clearfix">
+                            <div class="form-filters-left">
+                                <ul class="clearfix inline-search-form-mode">
+                                    <li class="item"><a href="" id="toggle-roundtrip" class="active search-type-toggle" rel="roundtrip">Round Trip</a></li>
+                                    <li class="item"><a href="" id="toggle-oneway" class=" search-type-toggle" rel="oneway">One Way</a></li>
+                                    <li class="item"><a href="" id="toggle-multi" class=" search-type-toggle" rel="multi">Multi-City</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="display-table table-wrap">
+                            <div class="column inputs">
+                                <div class="form-fields-wrap clearfix">
+                                    <div class="form-field-wrap form-field-from">
+                                        <input type="text" name="seg0_from" placeholder="Leaving from" autocomplete="off" class="airport-related" value="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                        <input type="hidden" name="seg0_from_code" value="">
+                                    </div>
+
+                                    <div class="form-field-wrap form-field-to">
+                                        <input type="text" name="seg0_to" placeholder="Going to" autocomplete="off" class="airport-related" value="">
+                                        <input type="hidden" name="seg0_to_code" value="">
+                                    </div>
+
+                                    <div class="form-field-wrap form-field-from-date">
+                                        <input  type="date" name="seg0_date" placeholder="Departing date" autocomplete="off" class="date-field-from date-picker-on" id="date-picker-1" data-id="1" value="">
+                                    </div>
+
+                                    <div class="form-field-wrap form-field-to-date">
+                                        <input type="date" name="seg1_date" placeholder="Returning date" autocomplete="off" class="date-field-to date-picker-on" id="date-picker-2" data-id="2" value="">
+                                    </div>
+
+                                    <div id="multi-city-wrapper" class="multi-city-wrapper mobile-only"></div>
+
+                                </div>
+                                <div class="form-fields-wrap-multi-container">
+
+                                    <div class="form-fields-wrap-multi clearfix displayed-field" id="inline-search-form-segment-1">
+                                        <div style="overflow:hidden;">
+                                            <div class="form-field-wrap form-field-from">
+                                                <input type="text" name="seg1_from" placeholder="Leaving from" autocomplete="off" class="airport-related" value="">
+
+                                                <input type="hidden" name="seg1_from_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-to">
+                                                <input type="text" name="seg1_to" placeholder="Going to" autocomplete="off" class="airport-related" value="">
+                                                <input type="hidden" name="seg1_to_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-from-date">
+                                                <input type="text" name="seg1_date" placeholder="Date" autocomplete="off" class="date-field-from date-picker-on" data-id="3" id="date-picker-3" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-field-segment">
+                                            <div class="inline-search-form-add-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-add-segment">+ Add segment</a>
+                                            </div>
+
+                                            <div class="inline-search-form-remove-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-remove-segment">- Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-fields-wrap-multi clearfix" id="inline-search-form-segment-2" style="display:none;">
+                                        <div style="overflow:hidden;">
+                                            <div class="form-field-wrap form-field-from">
+                                                <input type="text" name="seg2_from" placeholder="Leaving from" autocomplete="off" class="airport-related" value="">
+
+                                                <input type="hidden" name="seg2_from_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-to">
+                                                <input type="text" name="seg2_to" placeholder="Going to" autocomplete="off" class="airport-related" value="">
+                                                <input type="hidden" name="seg2_to_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-from-date">
+                                                <input readonly="true" type="text" name="seg2_date" placeholder="Date" autocomplete="off" class="date-field-from date-picker-on" data-id="4" id="date-picker-4" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-field-segment">
+                                            <div class="inline-search-form-add-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-add-segment">+ Add segment</a>
+                                            </div>
+
+                                            <div class="inline-search-form-remove-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-remove-segment">- Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-fields-wrap-multi clearfix" id="inline-search-form-segment-3" style="display:none;">
+                                        <div style="overflow:hidden;">
+                                            <div class="form-field-wrap form-field-from">
+                                                <input type="text" name="seg3_from" placeholder="Leaving from" autocomplete="off" class="airport-related" value="">
+
+                                                <input type="hidden" name="seg3_from_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-to">
+                                                <input type="text" name="seg3_to" placeholder="Going to" autocomplete="off" class="airport-related" value="">
+                                                <input type="hidden" name="seg3_to_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-from-date">
+                                                <input readonly="true" type="text" name="seg3_date" placeholder="Date" autocomplete="off" class="date-field-from date-picker-on" data-id="5" id="date-picker-5" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-field-segment">
+                                            <div class="inline-search-form-add-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-add-segment">+ Add segment</a>
+                                            </div>
+
+                                            <div class="inline-search-form-remove-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-remove-segment">- Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-fields-wrap-multi clearfix" id="inline-search-form-segment-4" style="display:none;">
+                                        <div style="overflow:hidden;">
+                                            <div class="form-field-wrap form-field-from">
+                                                <input type="text" name="seg4_from" placeholder="Leaving from" autocomplete="off" class="airport-related" value="">
+
+                                                <input type="hidden" name="seg4_from_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-to">
+                                                <input type="text" name="seg4_to" placeholder="Going to" autocomplete="off" class="airport-related" value="">
+                                                <input type="hidden" name="seg4_to_code" value="">
+                                            </div>
+                                            <div class="form-field-wrap form-field-from-date">
+                                                <input readonly="true" type="text" name="seg4_date" placeholder="Date" autocomplete="off" class="date-field-from date-picker-on" data-id="6" id="date-picker-6" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-field-segment">
+                                            <div class="inline-search-form-add-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-add-segment">+ Add segment</a>
+                                            </div>
+
+                                            <div class="inline-search-form-remove-segment-container">
+                                                <a href="" class="multicity-btn inline-search-form-remove-segment">- Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <input type="hidden" name="type" value="roundtrip">
+                            </div>
+                            <div class="column search">
+                                    
+                                <div class="form-field-passengers">
+                                    <div class="passenger-toggle-wrap">
+                                        <div tabindex="0" class="passenger-toggle search-dropdown-toggle" data-dropdown="passengers">
+                                            <input type="text" name="passenger" placeholder="passengers"/>
+                                            <i class="fa fa-chevron-down"></i>
+
+                                            <div id="passengers" class="search-dropdown" style="display: none;">
+                                                <div class="passenger-type display-table">
+                                                    <div class="pass-left column label">Adult</div>
+                                                    <div class="pass-right column picker">
+                                                        <div class="passenger-picker">
+                                                            <input type="hidden" class="passengerType" name="num_adults" data-field-min="1" data-field-limit="9" data-field-id="num_adults" value="1">
+                                                            <div class="display-table picker-wrapper">
+                                                                <div class="column picker-button remove disabled">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </div>
+                                                                <div class="column qty">
+                                                                    <span id="num_adults">1</span>
+                                                                </div>
+                                                                <div class="column picker-button add ">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="passenger-type display-table">
+                                                    <div class="pass-left column label">
+                                                        Children
+                                                        <div class="age">2-11</div>
+                                                    </div>
+                                                    <div class="pass-right column picker">
+                                                        <div class="passenger-picker">
+                                                            <input type="hidden" class="passengerType" name="num_children" data-field-min="0" data-field-limit="9" data-field-id="num_children" value="0">
+                                                            <div class="display-table picker-wrapper">
+                                                                <div class="column picker-button remove disabled">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </div>
+                                                                <div class="column qty">
+                                                                    <span id="num_children">0</span>
+                                                                </div>
+                                                                <div class="column picker-button add ">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="passenger-type display-table">
+                                                    <div class="pass-left column label">
+                                                        Infants
+                                                        <div class="age">0-2</div>
+                                                    </div>
+                                                    <div class="pass-right column picker">
+                                                        <div class="passenger-picker">
+                                                            <input type="hidden" class="passengerType" name="num_infants" data-field-min="0" data-field-limit="4" data-field-id="num_infants" value="0">
+                                                            <div class="display-table picker-wrapper">
+                                                                <div class="column picker-button remove disabled">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </div>
+                                                                <div class="column qty">
+                                                                    <span id="num_infants">0</span>
+                                                                </div>
+                                                                <div class="column picker-button add ">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="passenger-type display-table">
+                                                    <div class="pass-left column label">
+                                                        Infants (lap)
+                                                        <div class="age">0-2</div>
+                                                    </div>
+                                                    <div class="pass-right column picker">
+                                                        <div class="passenger-picker">
+                                                            <input type="hidden" class="passengerType" name="num_infants_lap" data-field-min="0" data-field-limit="4" data-field-id="num_infants_lap" value="0">
+                                                            <div class="display-table picker-wrapper">
+                                                                <div class="column picker-button remove disabled">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </div>
+                                                                <div class="column qty">
+                                                                    <span id="num_infants_lap">0</span>
+                                                                </div>
+                                                                <div class="column picker-button add ">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="close-passenger-picker">Done</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-field-button">
+                                    <a href="#" class="form-field-submit-button">SEARCH</a>
+                                    <button type="submit">SEARCH</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-filters-wrap clearfix flight-class">
+                            <div class="form-filters-left">
+                                <ul class="filter-list">
+                                    <li class="item item-hotels-search" style="margin-left: 5px; opacity:1;">
+                                        <input type="checkbox" id="travel_purpose" name="travel_purpose">
+                                        <label for="travel_purpose"><span>Travelling for Business</span></label>
+                                    </li>
+                                    <li class="item">
+                                        <a class="select-wrapper" rel="seat_class">
+                                            <span class="select-first-text" rel="seat_class">Economy</span>
+                                            <i class="select-down-arrow fa fa-chevron-down"></i>
+                                            <select name="seat_class" class="text styled-select">
+                                                <option value="Economy" selected="">Economy</option>
+                                                <option value="EconomyPremium">Premium Economy</option>
+                                                <option value="Business">Business</option>
+                                                <option value="First">First</option>
+                                            </select>
+                                        </a>
+                                    </li>
+
+
+                                    <li class="item item-hotels-search before-recent-searches">
+                                        <input type="checkbox" id="hotels_search_before" name="hotels_search" value="1" checked="checked">
+                                        <label for="hotels_search_before"><span>Include hotel options</span></label>
+                                    </li>
+                                    <li class="item item-hotels-search after-recent-searches">
+                                        <input type="checkbox" id="hotels_search_after" name="hotels_search" value="1" checked="checked">
+                                        <label for="hotels_search_after"><span>Include hotel options</span></label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="home-page-recent-items">
+                        <div class="inner">
+                        </div>
+                    </div>
+                </form>
+                <form action="/hotel/searchresults?label=hotel_tab" class="main-search-form has-icons hotels" id="hotel-search-form" method="get" data-tab-target="search-hotels">
+                    <div class="input-wrap">
+                        <input type="hidden" name="selected_currency" value="USD">
+                        <input type="hidden" name="dest_id" value="">
+                        <input type="hidden" name="dest_type" value="">
+                        <input type="hidden" name="label" value="hotel_tab">
+                    </div>
+                    <ul class="display-table main-search-form-field-wrap">
+                        <li class="column search-field-wrap form-field-wrap destination">
+                            <input id="hotel_autocomplete" name="ss" placeholder="Select a city, airport or landmark" autocomplete="off" type="text" class="airport-related ui-autocomplete-input">
+                            <div class="main-search-form-validation">Please type a destination</div>
+                        </li>
+                        <li class="column search-field-wrap form-field-wrap checkin">
+                            <input name="checkin" readonly="true" placeholder="Check-in" autocomplete="off" type="text" class="hasDatepicker" val="" id="dp1548883639890">
+                            <div class="main-search-form-validation">Select your Check-In date</div>
+                        </li>
+                        <li class="column search-field-wrap form-field-wrap checkout">
+                            <input name="checkout" readonly="true" placeholder="Check-out" autocomplete="off" type="text" class="hasDatepicker" val="" id="dp1548883639891">
+                            <div class="main-search-form-validation">Select your Check-out date</div>
+                        </li>
+                        <li class="column search-field-wrap rooms">
+                            <div tabindex="0" class="passenger-toggle search-dropdown-toggle" data-dropdown="hotel-rooms">
+                                <span id="num-guests" class="num-rooms" data-passengers="1">1</span> <span>Room(s)</span>
+                                <i class="fa fa-chevron-down"></i>
+                                <div style="background: rgb(255, 255, 255); display: none;" class="search-dropdown hotel-rooms" id="hotel-rooms">
+                                    <div class="passenger-type display-table">
+                                        <div class="pass-left column label">Rooms</div>
+                                        <div class="pass-right column picker">
+                                            <div class="passenger-picker">
+                                                <input type="hidden" class="passengerType" name="no_rooms" data-field-min="1" data-field-limit="30" data-field-id="no_rooms" value="1">
+                                                <div class="display-table picker-wrapper">
+                                                    <div class="column picker-button remove disabled">
+                                                        <i class="fa fa-minus"></i>
+                                                    </div>
+                                                    <div class="column qty">
+                                                        <span id="no_rooms">1</span>
+                                                    </div>
+                                                    <div class="column picker-button add">
+                                                        <i class="fa fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="passenger-type display-table">
+                                        <div class="pass-left column label">Adults</div>
+                                        <div class="pass-right column picker">
+                                            <div class="passenger-picker">
+                                                <input type="hidden" class="passengerType" name="group_adults" data-field-min="1" data-field-limit="30" data-field-id="group_adults" value="2">
+                                                <div class="display-table picker-wrapper">
+                                                    <div class="column picker-button remove">
+                                                        <i class="fa fa-minus"></i>
+                                                    </div>
+                                                    <div class="column qty">
+                                                        <span id="group_adults">2</span>
+                                                    </div>
+                                                    <div class="column picker-button add">
+                                                        <i class="fa fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="passenger-type display-table">
+                                        <div class="pass-left column label">Children</div>
+                                        <div class="pass-right column picker">
+                                            <div class="passenger-picker">
+                                                <input type="hidden" class="passengerType" name="group_children" data-field-min="0" data-field-limit="10" data-field-id="group_children" value="0">
+                                                <div class="display-table picker-wrapper">
+                                                    <div class="column picker-button remove disabled">
+                                                        <i class="fa fa-minus"></i>
+                                                    </div>
+                                                    <div class="column qty">
+                                                        <span id="group_children">0</span>
+                                                    </div>
+                                                    <div class="column picker-button add">
+                                                        <i class="fa fa-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="close-passenger-picker">Done</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="column search-field-wrap submit">
+                            <button onclick="return saveHotelSearch()" id="hotel_search_button">Search Hotels</button>
+                        </li>
+                    </ul>
+                </form><form action="/car/search" class="main-search-form has-icons cars" method="post" data-tab-target="search-cars">
+                    <div class="input-wrap">
+                        <input type="hidden" name="lang" value="en">
+                        <input type="hidden" name="clientID" value="723539">
+                        <input type="hidden" name="countryID" value="">
+                        <input type="hidden" name="curr" value="USD">
+                        <input type="hidden" name="pickupIATACode" value="">
+                        <input type="hidden" name="returnIATACode" value="">
+                        <input type="hidden" name="pickupDateTime" value="">
+                        <input type="hidden" name="returnDateTime" value="">
+                        <input type="hidden" name="age" value="30">
+                        <input type="hidden" name="residenceID" value="US">
+                        <input type="hidden" name="label" value="cars_tab">
+                    </div>
+                    <ul class="display-table main-search-form-field-wrap">
+                        <li class="column search-field-wrap form-field-wrap cars">
+                            <input id="cars_autocomplete" name="ss" placeholder="Select the closest desired airport" autocomplete="off" type="text" class="airport-related">
+                            <div class="main-search-form-validation">Please type a destination</div>
+                        </li>
+                        <li class="column search-field-wrap form-field-wrap checkin">
+                            <input name="prettyPickupDateTime" readonly="true" placeholder="Start date" autocomplete="off" type="text" class="hasDatepicker" val="" id="dp1548883639888">
+                            <div class="main-search-form-validation">Select your starting date</div>
+                        </li>
+                        <li class="column search-field-wrap form-field-wrap checkout">
+                            <input name="prettyReturnDateTime" readonly="true" placeholder="End date" autocomplete="off" type="text" class="hasDatepicker" val="" id="dp1548883639889">
+                            <div class="main-search-form-validation">Select your ending date</div>
+                        </li>
+                        <li class="column search-field-wrap submit">
+                            <button id="cars_search_button">Search Cars</button>
+                        </li>
+                    </ul>
+                    <div class="advanced-search-wrap">
+                        <a href="https://cars.justfly.com" class="advanced-search">Advanced search</a>
+                    </div>
+                </form>
+                <form name="cruise_search_form" class="main-search-form has-icons cruises" id="cruises-search-form" data-tab-target="search-cruises" method="get" action="https://booking.seahub.com/app/0/cruise/0/search_cruises.html">
+
+                    <div id="cruise_feedback_message" style="display: none;"></div>
+
+                    <ul class="display-table main-search-form-field-wrap">
+                        <li class="column search-field-wrap form-field-wrap cruise-destination">
+                            <a class="cruises-text">
+                                <span class="ellipsis-wrap" rel="destination_id">Cruising To</span>
+                                <i class="fa fa-chevron-down"></i>
+                                <select class="styled-select" name="destination_id">
+                                    <option selected="" disabled="" hidden="">Cruising To</option>
+                                    <option value="0">Any Destination</option>
+                                    <option value="1">Africa</option>
+                                    <option value="2">Alaska</option>
+                                    <option value="84">Alaska - Inside Passage</option>
+                                    <option value="74">Alaska Gulf - Northbound</option>
+                                    <option value="75">Alaska Gulf - Southbound</option>
+                                    <option value="55">Amazon</option>
+                                    <option value="79">Antarctica</option>
+                                    <option value="81">Arctic</option>
+                                    <option value="4">Australia</option>
+                                    <option value="5">Bahamas</option>
+                                    <option value="70">Baja Mexico</option>
+                                    <option value="7">Bermuda</option>
+                                    <option value="10">Canada</option>
+                                    <option value="78">Canada / New England</option>
+                                    <option value="45">Caribbean</option>
+                                    <option value="12">Caribbean - Eastern</option>
+                                    <option value="11">Caribbean - Southern</option>
+                                    <option value="13">Caribbean - Western</option>
+                                    <option value="602">China</option>
+                                    <option value="14">Costa Rica</option>
+                                    <option value="616">Cuba</option>
+                                    <option value="604">Egypt</option>
+                                    <option value="47">Europe</option>
+                                    <option value="605">Europe - Greenland</option>
+                                    <option value="15">Europe - Northern</option>
+                                    <option value="51">Europe - Norway</option>
+                                    <option value="16">Europe - Western</option>
+                                    <option value="609">Expedition</option>
+                                    <option value="17">Far East</option>
+                                    <option value="615">Galapagos Island</option>
+                                    <option value="53">Greece</option>
+                                    <option value="19">Hawaii</option>
+                                    <option value="21">India</option>
+                                    <option value="607">Indian Ocean</option>
+                                    <option value="22">Mediterranean</option>
+                                    <option value="66">Mediterranean - Eastern</option>
+                                    <option value="83">Mediterranean - Western</option>
+                                    <option value="73">Mexican Riviera</option>
+                                    <option value="23">Mexico</option>
+                                    <option value="600">Middle East</option>
+                                    <option value="601">Newfoundland</option>
+                                    <option value="24">New England</option>
+                                    <option value="26">New Zealand</option>
+                                    <option value="614">Northwest Passage</option>
+                                    <option value="50">Pacific Northwest</option>
+                                    <option value="30">Panama Canal</option>
+                                    <option value="610">Repositioning</option>
+                                    <option value="52">Russia</option>
+                                    <option value="34">South America</option>
+                                    <option value="35">South Pacific</option>
+                                    <option value="3">Southeast Asia</option>
+                                    <option value="36">Tahiti</option>
+                                    <option value="38">Transatlantic</option>
+                                    <option value="39">Transcanal</option>
+                                    <option value="40">Transpacific</option>
+                                    <option value="63">U. S. Atlantic Coast</option>
+                                    <option value="29">U. S. Pacific Coast</option>
+                                    <option value="80">U. S. River</option>
+                                    <option value="42">World</option>
+                                </select>
+                            </a>
+                            <div class="main-search-form-validation"></div>
+                        </li>
+
+                        <li class="column search-field-wrap form-field-wrap departure-month">
+                            <a class="cruises-text">
+                                <span class="ellipsis-wrap" rel="start_date">Departure Month</span>
+                                <i class="fa fa-chevron-down"></i>
+                                <select class="styled-select" name="start_date">
+                                    <option selected="" disabled="" hidden="">Departure Month</option>
+                                    <option value="02/01/2019">Any Month</option>
+                                    <option value="02/01/2019">February - 2019</option>
+                                    <option value="03/01/2019">March - 2019</option>
+                                    <option value="04/01/2019">April - 2019</option>
+                                    <option value="05/01/2019">May - 2019</option>
+                                    <option value="06/01/2019">June - 2019</option>
+                                    <option value="07/01/2019">July - 2019</option>
+                                    <option value="08/01/2019">August - 2019</option>
+                                    <option value="09/01/2019">September - 2019</option>
+                                    <option value="10/01/2019">October - 2019</option>
+                                    <option value="11/01/2019">November - 2019</option>
+                                    <option value="12/01/2019">December - 2019</option>
+                                    <option value="01/01/2020">January - 2020</option>
+                                    <option value="02/01/2020">February - 2020</option>
+                                    <option value="03/01/2020">March - 2020</option>
+                                    <option value="04/01/2020">April - 2020</option>
+                                    <option value="05/01/2020">May - 2020</option>
+                                    <option value="06/01/2020">June - 2020</option>
+                                    <option value="07/01/2020">July - 2020</option>
+                                    <option value="08/01/2020">August - 2020</option>
+                                    <option value="09/01/2020">September - 2020</option>
+                                    <option value="10/01/2020">October - 2020</option>
+                                    <option value="11/01/2020">November - 2020</option>
+                                    <option value="12/01/2020">December - 2020</option>
+                                    <option value="01/01/2021">January - 2021</option>
+                                </select>
+                            </a>
+                            <div class="main-search-form-validation"></div>
+                        </li>
+
+                        <li class="column search-field-wrap form-field-wrap cruise-line">
+                            <a class="cruises-text">
+                                <span class="ellipsis-wrap" rel="vendor_id">Any Cruise Line</span>
+                                <i class="fa fa-chevron-down"></i>
+                                <select class="styled-select" name="vendor_id">
+                                    <option value="0">Any Cruise Line</option>
+                                    <option value="1591">Azamara Club Cruises</option>
+                                    <option value="1">Carnival Cruise Line</option>
+                                    <option value="2">Celebrity Cruises</option>
+                                    <option value="16">Costa Cruise Lines</option>
+                                    <option value="3">Crystal Cruises</option>
+                                    <option value="17">Cunard</option>
+                                    <option value="20">Disney Cruise Line</option>
+                                    <option value="4">Holland America Line</option>
+                                    <option value="60">MSC Cruises</option>
+                                    <option value="5">Norwegian Cruise Line</option>
+                                    <option value="61">Oceania Cruises</option>
+                                    <option value="1600">Paul Gauguin Cruises</option>
+                                    <option value="6">Princess Cruises</option>
+                                    <option value="7">Regent Seven Seas Cruises</option>
+                                    <option value="8">Royal Caribbean International</option>
+                                    <option value="18">Seabourn Cruise Line</option>
+                                    <option value="19">Silversea Cruises</option>
+                                    <option value="68">Star Clippers</option>
+                                    <option value="1616">Viking Ocean Cruises</option>
+                                    <option value="9">Windstar Cruises</option>
+                                </select>
+                            </a>
+                        </li>
+
+                        <li class="column search-field-wrap form-field-wrap port">
+                            <a class="cruises-text">
+                                <span class="ellipsis-wrap" rel="departure_port_id">Any Port</span>
+                                <i class="fa fa-chevron-down"></i>
+                                <select class="styled-select" name="departure_port_id">
+                                    <option value="0">Any Port</option>
+                                    <option value="2258">Anegada, British Virgin Islands</option>
+                                    <option value="327">Barcelona, Spain</option>
+                                    <option value="333">Boston, Massachusetts</option>
+                                    <option value="4412">Chioggia, Venice, Italy</option>
+                                    <option value="312">Civitavecchia (Rome), Italy</option>
+                                    <option value="63">Copenhagen, Denmark</option>
+                                    <option value="146">Corfu, Greece</option>
+                                    <option value="202">Cozumel, Mexico</option>
+                                    <option value="302">Dubrovnik, Croatia</option>
+                                    <option value="334">Fort Lauderdale (Port Everglades)</option>
+                                    <option value="335">Galveston, Texas</option>
+                                    <option value="313">Genoa, Italy</option>
+                                    <option value="297">Hamburg, Germany</option>
+                                    <option value="125">Kusadasi (Ephesus), Turkey</option>
+                                    <option value="299">Lisbon, Portugal</option>
+                                    <option value="338">Los Angeles, California</option>
+                                    <option value="4307">Marigot, Saint Martin</option>
+                                    <option value="3720">Marina Zea, Piraeus, Greece</option>
+                                    <option value="377">Marseille, France</option>
+                                    <option value="339">Miami, Florida</option>
+                                    <option value="316">Naples, Italy</option>
+                                    <option value="357">Nassau, Bahamas</option>
+                                    <option value="341">New Orleans, Louisiana</option>
+                                    <option value="342">New York, New York</option>
+                                    <option value="346">Port Canaveral, Florida</option>
+                                    <option value="614">Rostock, Germany</option>
+                                    <option value="900">Savona (Genoa), Italy</option>
+                                    <option value="352">Seattle, Washington</option>
+                                    <option value="5438">Southampton, England</option>
+                                    <option value="69">St. Petersburg, Russia</option>
+                                    <option value="2277">Tenerife, Canary Islands, Spain</option>
+                                    <option value="14">Tunis, Tunisia</option>
+                                    <option value="355">Vancouver, British Columbia</option>
+                                </select>
+                            </a>
+                            <div class="main-search-form-validation"></div>
+                        </li>
+
+                        <li class="column search-field-wrap submit">
+                            <button id="home-btn-submit-cruise">Search Cruises</button>
+                        </li>
+
+                    </ul>
+
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>-->

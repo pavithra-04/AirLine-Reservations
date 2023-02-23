@@ -304,6 +304,8 @@
     <Content Include="Views\Info\PrivacyPolicy.cshtml" />
     <Content Include="Views\Flights\Booking.cshtml" />
     <Content Include="Views\Flights\Payments.cshtml" />
+    <Content Include="Views\Flights\Booking_Form.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,6 +17,12 @@ namespace ALR_02.Controllers
             return View();
         }
 
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+
         public ActionResult Login()
         {
             LoginModel objLoginModel = new LoginModel();
