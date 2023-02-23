@@ -1,0 +1,357 @@
+﻿
+@{
+    ViewBag.Title = "FlightsList";
+}
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .flight-depart {
+        background-color: rgb(234, 229, 229);
+        padding:10px 30px;
+        margin:10px 10px;
+    }
+
+    .depart-col {
+        padding-top: 20px;
+        padding-left: 5px;
+        font-size: 18px;
+    }
+
+    .depart-city {
+        padding: 20px;
+    }
+
+    .flight-city {
+        display: flex;
+    }
+
+    .time-col {
+        padding: 10px;
+    }
+
+    .stop-col {
+        padding: 10px;
+    }
+
+    .price-col {
+        padding: 10px;
+    }
+
+    .timing {
+        display: flex;
+        margin: 10px;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .time-start {
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .arrow {
+        padding: 20px;
+    }
+
+    .time-end {
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .flight-no {
+        padding-top: 20px;
+        padding-left: 120px;
+    }
+
+    .type {
+        padding-top: 20px;
+        padding-left: 200px;
+        text-align: center;
+    }
+
+    .amount {
+        padding-top: 20px;
+        padding-left: 260px;
+        font-size: 20px;
+    }
+
+    .textsize {
+        font-size: 11px;
+        color: rgb(155, 152, 152);
+    }
+
+
+</style>
+
+  
+<body>
+
+   
+    <div class="container">
+        @using (Html.BeginForm("FlightsList", "Account", FormMethod.Get))
+        {
+            <table>
+                <tr>
+                    <td style="padding-top:30px;">
+                        <span><b>Search By:</b></span>
+                        @Html.RadioButton("SearchBy", "CityName", true)
+                        <text> City Name</text>
+                        @Html.RadioButton("SearchBy", "Time")
+                        <text> Time </text>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.TextBox("searchValue", null, new { Class = "form-control", placeholder = "Enter CityName or Time" })
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <input type="submit" value="Search" class=" btn-info" />
+                    </td>
+                    <td style="padding-bottom:50px;">
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <article>
+        <div class="flight-depart container-fluid">
+            <p class="depart-col">✈️Departing flight</p>
+            <div class="flight-city">
+                <h2 class="depart-city">Delhi to Benguluru</h2>
+                <div class="time-col">
+                    <form action="/action_page.php">
+                        <label for="Time">Time</label>
+                        <br>
+                        <select name="Time" id="Time">
+                            <option value="2">00-06 Hrs</option>
+                            <option value="3">06-12 Hrs</option>
+                            <option value="4">12-18 Hrs</option>
+                            <option value="5">18 Hrs</option>
+                        </select>
+                    </form>
+                    <br>
+                </div>
+                <div class="stop-col">
+                    <form action="/action_page.php">
+                        <label for="stops">stops</label>
+                        <br>
+                        <select name="stops" id="stops">
+                            <br>
+                            <option value="1">ALL</option>
+                            <option value="2">NON-STOP</option>
+                        </select>
+                    </form>
+                    <br>
+                </div>
+                <div class="price-col">
+                    <form action="/action_page.php">
+                        <label for="Price">Price</label>
+                        <br>
+                        <select name="Price" id="Price">
+                            <option value="1">LOW-HIGH</option>
+                            <option value="2">HIGH-LOW</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+
+@*---------------data starts here------------*@
+
+
+
+
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>04:20</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 55m-----&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>07:15</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 2067</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;9,180</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>05:55</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 50m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>08:45</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 2112</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;10,500</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>07:00</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 50m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>09:50</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 7844</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;8,000</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>07:55</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------3h 0m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>10:55</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 2212</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;9,300</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>09:15</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 50m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>12:05</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 3224</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;9,180</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>10:40</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 50m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>13:40</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 3478</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;7,800</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>12:15</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 50m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>15:05</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 5597</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;8,440</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+            <div class="timing">
+                <div class="time-start">
+                    <p><strong>13:05</strong></p>
+                    <p class="textsize">DEL</p>
+                </div>
+                <div class="arrow">
+                    <p>●-------2h 50m------&#9992;</p>
+                </div>
+                <div class="time-end">
+                    <p><strong>15:55</strong></p>
+                    <p class="textsize">BLR</p>
+                </div>
+                <div class="flight-no">
+                    <p><strong>✈️6E 4586</p></strong></p>
+                </div>
+                <div class="type">
+                    <p><strong>Non-stop</strong></p>
+                </div>
+                <div class="amount">
+                    <p><strong>&#X20B9;5,000</strong></p>
+                    <p class="textsize">Earn 455 6E Rewards</p>
+                </div>
+            </div>
+    </article>
+</body>
