@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Flights_Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Flight Details</title>
+</head>
+<style>
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #fdf2e9; background-size: cover;
+    }
+
+    .Heading {
+        text-align: center;
+        padding: 15px;
+        text-decoration-line: underline;
+    }
+
+    .flightsContainer {
+        text-align: left;
+        //margin: 20px 250px 20px 250px;
+        
+    }
+
+    .col {
+        padding: 12px;
+    }
+
+    .styled {
+        border: 0;
+        line-height: 2.5;
+        padding: 0 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: rgb(31, 241, 108);
+        background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+        box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    form{
+        display:flex;
+        flex-wrap:nowrap!important;
+    }
+</style>
+<body>
+    <Header>
+        <div class="Heading">
+            <h1>Flight Details</h1>
+        </div>
+    </Header>
+    <div class="container flightsContainer">
+        <form>
+            <div class="col row-1">
+                <label for="Fid">Flight Id</label>
+                &ensp;&ensp;&ensp;&ensp;
+                <input type="text" id="Fid" name="Fid" placeholder="Enter Flight Id" class="form-control" disabled><br />
+                <label for="FNo">Flight No</label>
+                &ensp;&ensp;
+                <br />
+                <input type="text" id="FNo" name="FNo" placeholder="Enter Flight No" class="form-control">
+                <label for="Fid">Flight Name</label>
+                &ensp;&ensp;&ensp;
+                <input type="text" id="Fname" name="Fname" placeholder="Enter Flight Name" class="form-control">
+                <br>
+            </div>
+            <div class="col row-2">
+
+                <label for="FNo">From Location</label>
+                &ensp;&ensp;
+                <input type="text" id="FLoc" name="FLoc" placeholder="Enter Flight Location" class="form-control">
+                <br>
+                <label for="FLoc">Flight Date</label>
+                <input type="date" id="Fdate" name="Fdate" placeholder="dd/mm/yyyy" class="form-control">
+                <label for="TLoc">To Location</label>
+                &ensp;
+                <input type="text" id="FtoLoc" name="FtoLoc" placeholder="Enter Destination" class="form-control">
+                <br>
+            </div>
+            @*  <div class="col row-2">
+            <label for="FName">Flight Name</label>
+            &ensp;
+            <input type="text" id="FName" name="FName" placeholder="Enter Flight Name">
+            <br>
+
+        </div>*@
+            <div class="col row-3">
+                <label for="FDep">Depature Time</label>
+                <input type="text" id="FDep" name="FDep" placeholder=" Depature Time" class="form-control">
+                <label for="FTimD">Time Duration</label>
+                <input type="text" id="FTimD" name="FTimD" placeholder=" Time Duration" class="form-control">
+                <br>
+                <label for="Fseats">No Of Seats</label>
+                <input type="text" id="Fseats" name="Fseats" placeholder="Enter No Of Seats" class="form-control">
+            </div>
+            <div class="col row-4">
+
+            </div>
+            <div class="col row-4">
+
+            </div>
+            <div class="col row-5">
+
+            </div>
+            <br />
+
+            <div class="col row-6">
+
+                <label for="Fpersons">No.Of Persons</label>
+                <input type="text" id="Fpersons" name="Fpersons" placeholder="Enter No.Of Persons" class="form-control">
+                <br>
+                <label for="FEC">Economy Seats</label>
+                <input type="text" id="FEC" name="FEC" placeholder="Enter Economy Seats" class="form-control">
+                <label for="FEP">Economy Price</label>
+                <input type="text" id="FEP" name="FEP" placeholder="Enter Economy Price" class="form-control">
+                <br>
+            </div>
+            @* <div class="col row-5">
+            <label for="Fid">No Of Seats</label>
+            &ensp;&ensp;
+            <input type="text" id="Fid" name="Fid" placeholder="Enter Flight Id">
+            <br>
+        </div>*@
+
+            <div class="col row-7">
+                <label for="FBC">Business Seats</label>
+
+                <input type="text" id="FBC" name="FBC" placeholder=" Business Seats" class="form-control">
+                <label for="FBP">Business Price</label>
+                <input type="text" id="FBP" name="FBP" placeholder=" Business Price" class="form-control">
+                <br>
+                <label for="FSS">Second Seats</label>
+                &ensp;
+                <input type="text" id="FSS" name="FSS" placeholder="Enter Second Seats" class="form-control">
+            </div>
+            <div class="col row-8">
+
+                <label for="FSP">Second Price</label>
+                <input type="text" id="FSP" name="FSP" placeholder="Enter Second Price" class="form-control">
+                <br>
+                <label for="FSSa">First Seats</label>
+                &ensp;&ensp;&ensp;
+                <input type="text" id="FSSa" name="FSSa" placeholder="Enter First Seats" class="form-control">
+                <label for="FPSS">First Price</label>
+                &ensp;&ensp;
+                <input type="text" id="FPSS" name="FPSS" placeholder="Enter First Price" class="form-control">
+            </div>
+            <div class="col row-9">
+
+
+            </div>
+        </form>
+    </div>
+    <div class="btn">
+        <button class="favorite styled btn " style="margin-left:190px" type="button">Submit</button>
+    </div>
+</body>
+</html>

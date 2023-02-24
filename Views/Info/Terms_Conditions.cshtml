@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Terms_Conditions";
+}
+
+
+
+
+<html>
+<head>
+    <script>
+         function disableSubmit() {
+          document.getElementById("submit").disabled = true;
+         }
+
+          function activateButton(element) {
+
+              if(element.checked) {
+                document.getElementById("submit").disabled = false;
+               }
+               else  {
+                document.getElementById("submit").disabled = true;
+              }
+
+          }
+    </script>
+</head>
+
+<body onload="disableSubmit()">
+    <style>
+        body {
+            background-color: #fae5d3;
+        }
+    </style>
+
+
+    <div class="container">
+
+
+        <h1>Terms & Conditions</h1>
+        <h3 class="info faqHead"> Flight Booking Terms </h3>
+        <ul style="list-style-type:disc;">
+            <li>The total price displayed on the Site includes all applicable government taxes.</li>
+            <li>You are required to pay the entire amount prior to the confirmation of your booking.</li>
+            <li>There will be no refund for 'no-shows' or any partially unused flights.</li>
+            <li>Infants must be accompanied by an adult at least 18 years of age.</li>
+            <li>Seats are subject to availability</li>
+        </ul>
+        <h3 class="info faqHead">Checkin </h3>
+        <ul>
+            <li>As per the airline rules, the standard check-in time begins 2 hours before departure for domestic flights.</li>
+            <li>For International flights, the check-in time is 3 hours before departure.</li>
+            <li>The passenger needs to check-in at least 2 hrs prior departure for Air India and Air India Express domestic flights else will be considered as a no show.</li>
+        </ul>
+        <h3 class="info faqHead">Amendments </h3>
+        <ul>
+            <li>f you amend your booking, you will be charged the difference in fare, if any, applicable when the amendment is made. However if the new fare is lower than the Original fare, difference in the amount will not be refunded,but the rebooking charges as applicable will be collected</li>
+            <li>Every booking made on FlyFriendly is subject to amendment charges levied by the airline, which may vary by flight and booking class.</li>
+            <li>Depending on the airline's policy, some booked fares may not be amended.</li>
+        </ul>
+
+        <h3 class="info faqHead">Refund </h3>
+        <ul>
+            <li>Processing times for cancellation and refund requests vary.</li>
+            <li>Convenience fees paid at the time of booking is a non-refundable fee and same shall be applicable on all cancellations including any partial cancellation requests</li>
+            <li>The refund will be credited back to the same account from where the payment was made. For example, if the User used a credit card, Company will make an appropriate charge reversal. If the User used a debit card, Company will credit the money back to the debit card.</li>
+            <li>On the event of cancellation and refund of partially utilized tickets upfront discount and promo code discount availed at the time of booking would be deducted from the refund amount.</li>
+            <li>In case, where the user has cancelled his/her booking directly with the airlines, he/she will need to inform Company with valid documentation to initiate the refund process. It is advisable to contact Company within 48 hours of the cancellation request.</li>
+            <li>Company will be able to initiate customer's refund only after receipt and/or confirmation of refund from the airline.</li>
+        </ul>
+
+
+
+        <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)">  I Agree Terms & Coditions
+        <br><br>
+        <input type="submit" name="submit" id="submit">
+    </div>
+</body>
+</html>

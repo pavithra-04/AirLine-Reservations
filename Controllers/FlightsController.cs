@@ -25,5 +25,9 @@ namespace ALR_02.Controllers
         {
             return View();
         }
+        public ActionResult Flights_Details()
+        {
+            return View();
+        }
     }
 }

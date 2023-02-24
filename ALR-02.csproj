@@ -307,6 +307,8 @@
     <Content Include="Views\Flights\Booking_Form.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Account\FlightsList.cshtml" />
+    <Content Include="Views\Flights\Flights_Details.cshtml" />
+    <Content Include="Views\Info\Terms_Conditions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,9 +326,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AirLine-ClassLibrary\AirLine-ClassLibrary.csproj">
-      <Project>{7f02211e-0906-45af-b625-26deefe5807c}</Project>
-      <Name>AirLine-ClassLibrary</Name>
+    <ProjectReference Include="..\AirLine_ClassLibrary\AirLine_ClassLibrary.csproj">
+      <Project>{ece8b890-6c54-4d2d-a5c5-1d40812fa8c3}</Project>
+      <Name>AirLine_ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

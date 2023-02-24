@@ -25,6 +25,10 @@ namespace ALR_02.Controllers
         {
             return View();
         }
+        public ActionResult Terms_Conditions()
+        {
+            return View();
+        }
 
     }
 }
