@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirLine_ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,9 +26,31 @@ namespace ALR_02.Controllers
         {
             return View();
         }
+
+
+        [HttpPost]
+        public ActionResult Flights_Details(Flights objLoginModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            return View(objLoginModel);
+        }
+
         public ActionResult Flights_Details()
         {
-            return View();
+            Flights objFlights = new Flights();
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            return View(objFlights); 
         }
+
+
+
+
     }
 }

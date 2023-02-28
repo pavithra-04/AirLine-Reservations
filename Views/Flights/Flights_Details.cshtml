@@ -1,4 +1,5 @@
-﻿
+﻿@model AirLine_ClassLibrary.Flights
+
 @{
     ViewBag.Title = "Flights_Details";
 }
@@ -6,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   
+
     <title>Flight Details</title>
 </head>
 <style>
@@ -14,25 +15,28 @@
         max-width: 100%;
         overflow-x: hidden;
     }
+
     * {
         margin: 0;
         padding: 0;
     }
 
     body {
-        background-color: #fdf2e9; background-size: cover;
+        background-color: #fdf2e9;
+        background-size: cover;
     }
 
     .Heading {
-        text-align: center;
-        padding: 15px;
-        text-decoration-line: underline;
+        // text-align: center;
+        padding-left: 550px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        // text-decoration-line: underline;
     }
 
     .flightsContainer {
         text-align: left;
         //margin: 20px 250px 20px 250px;
-        
     }
 
     .col {
@@ -57,121 +61,135 @@
         text-align: center;
     }
 
-    form{
-        display:flex;
-        flex-wrap:nowrap!important;
+    form {
+        display: flex;
+        flex-wrap: nowrap !important;
+    }
+    .column {
+        float: left;
+        width: 50%;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 </style>
 <body>
-    <Header>
-        <div class="Heading">
-            <h1>Flight Details</h1>
-        </div>
-    </Header>
-    <div class="container flightsContainer">
-        <form>
-            <div class="col row-1">
-                <label for="Fid">Flight Id</label>
-                &ensp;&ensp;&ensp;&ensp;
-                <input type="text" id="Fid" name="Fid" placeholder="Enter Flight Id" class="form-control" disabled><br />
-                <label for="FNo">Flight No</label>
-                &ensp;&ensp;
-                <br />
-                <input type="text" id="FNo" name="FNo" placeholder="Enter Flight No" class="form-control">
-                <label for="Fid">Flight Name</label>
-                &ensp;&ensp;&ensp;
-                <input type="text" id="Fname" name="Fname" placeholder="Enter Flight Name" class="form-control">
-                <br>
-            </div>
-            <div class="col row-2">
 
-                <label for="FNo">From Location</label>
-                &ensp;&ensp;
-                <input type="text" id="FLoc" name="FLoc" placeholder="Enter Flight Location" class="form-control">
-                <br>
-                <label for="FLoc">Flight Date</label>
-                <input type="date" id="Fdate" name="Fdate" placeholder="dd/mm/yyyy" class="form-control">
-                <label for="TLoc">To Location</label>
-                &ensp;
-                <input type="text" id="FtoLoc" name="FtoLoc" placeholder="Enter Destination" class="form-control">
-                <br>
-            </div>
-            @*  <div class="col row-2">
-            <label for="FName">Flight Name</label>
-            &ensp;
-            <input type="text" id="FName" name="FName" placeholder="Enter Flight Name">
-            <br>
-
-        </div>*@
-            <div class="col row-3">
-                <label for="FDep">Depature Time</label>
-                <input type="text" id="FDep" name="FDep" placeholder=" Depature Time" class="form-control">
-                <label for="FTimD">Time Duration</label>
-                <input type="text" id="FTimD" name="FTimD" placeholder=" Time Duration" class="form-control">
-                <br>
-                <label for="Fseats">No Of Seats</label>
-                <input type="text" id="Fseats" name="Fseats" placeholder="Enter No Of Seats" class="form-control">
-            </div>
-            <div class="col row-4">
-
-            </div>
-            <div class="col row-4">
-
-            </div>
-            <div class="col row-5">
-
-            </div>
-            <br />
-
-            <div class="col row-6">
-
-                <label for="Fpersons">No.Of Persons</label>
-                <input type="text" id="Fpersons" name="Fpersons" placeholder="Enter No.Of Persons" class="form-control">
-                <br>
-                <label for="FEC">Economy Seats</label>
-                <input type="text" id="FEC" name="FEC" placeholder="Enter Economy Seats" class="form-control">
-                <label for="FEP">Economy Price</label>
-                <input type="text" id="FEP" name="FEP" placeholder="Enter Economy Price" class="form-control">
-                <br>
-            </div>
-            @* <div class="col row-5">
-            <label for="Fid">No Of Seats</label>
-            &ensp;&ensp;
-            <input type="text" id="Fid" name="Fid" placeholder="Enter Flight Id">
-            <br>
-        </div>*@
-
-            <div class="col row-7">
-                <label for="FBC">Business Seats</label>
-
-                <input type="text" id="FBC" name="FBC" placeholder=" Business Seats" class="form-control">
-                <label for="FBP">Business Price</label>
-                <input type="text" id="FBP" name="FBP" placeholder=" Business Price" class="form-control">
-                <br>
-                <label for="FSS">Second Seats</label>
-                &ensp;
-                <input type="text" id="FSS" name="FSS" placeholder="Enter Second Seats" class="form-control">
-            </div>
-            <div class="col row-8">
-
-                <label for="FSP">Second Price</label>
-                <input type="text" id="FSP" name="FSP" placeholder="Enter Second Price" class="form-control">
-                <br>
-                <label for="FSSa">First Seats</label>
-                &ensp;&ensp;&ensp;
-                <input type="text" id="FSSa" name="FSSa" placeholder="Enter First Seats" class="form-control">
-                <label for="FPSS">First Price</label>
-                &ensp;&ensp;
-                <input type="text" id="FPSS" name="FPSS" placeholder="Enter First Price" class="form-control">
-            </div>
-            <div class="col row-9">
-
-
-            </div>
-        </form>
+    <div class="Heading">
+        <h3>Flight Details</h3>
     </div>
-    <div class="btn">
-        <button class="favorite styled btn " style="margin-left:190px" type="button">Submit</button>
-    </div>
+    <form action="" class="FormCls" method="post">
+        <!-- Headings for the form -->
+        @using (Html.BeginForm("Flights_Details", "Flights", FormMethod.Post))
+        {
+            <div class="container row">
+
+                <div class="column" style="padding-left:240px;">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.flightId)
+                        @Html.TextBoxFor(m => m.flightId, "", new { @class = "form-control", @placeholder = "FlightId" , disabled = "disabled" })
+  
+                        @Html.ValidationMessageFor(m => m.flightId, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.flightName)
+                        @Html.TextBoxFor(m => m.flightName, "", new { @class = "form-control", @placeholder = "flightName" })
+                        @Html.ValidationMessageFor(m => m.flightName, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.flightDate)
+                        @Html.TextBoxFor(m => m.flightDate, "", new { @class = "form-control", @placeholder = "flightDate" })
+                        @Html.ValidationMessageFor(m => m.flightDate, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.fromLocation)
+                        @Html.TextBoxFor(m => m.fromLocation, "", new { @class = "form-control", @placeholder = "fromLocation" })
+                        @Html.ValidationMessageFor(m => m.fromLocation, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.toLocation)
+                        @Html.TextBoxFor(m => m.toLocation, "", new { @class = "form-control", @placeholder = "UserName" })
+                        @Html.ValidationMessageFor(m => m.toLocation, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.departureTime)
+                        @Html.TextBoxFor(m => m.departureTime, "", new { @class = "form-control", @placeholder = "departureTime" })
+                        @Html.ValidationMessageFor(m => m.departureTime, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.timeDuration)
+                        @Html.TextBoxFor(m => m.timeDuration, "", new { @class = "form-control", @placeholder = "timeDuration" })
+                        @Html.ValidationMessageFor(m => m.timeDuration, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.noOfSeats)
+                        @Html.TextBoxFor(m => m.noOfSeats, "", new { @class = "form-control", @placeholder = "noOfSeats" })
+                        @Html.ValidationMessageFor(m => m.noOfSeats, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                </div>
+
+                <div class="column" style="padding-left:140px;">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.economySeatsClass)
+                        @Html.TextBoxFor(m => m.economySeatsClass, "", new { @class = "form-control", @placeholder = "economySeatsClass" })
+                        @Html.ValidationMessageFor(m => m.economySeatsClass, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.economyPrice)
+                        @Html.TextBoxFor(m => m.economyPrice, "", new { @class = "form-control", @placeholder = "economyPrice" })
+                        @Html.ValidationMessageFor(m => m.economyPrice, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.businessPrice)
+                        @Html.TextBoxFor(m => m.businessPrice, "", new { @class = "form-control", @placeholder = "businessPrice" })
+                        @Html.ValidationMessageFor(m => m.businessPrice, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.secondClassSeats)
+                        @Html.TextBoxFor(m => m.secondClassSeats, "", new { @class = "form-control", @placeholder = "secondClassSeats" })
+                        @Html.ValidationMessageFor(m => m.secondClassSeats, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.secondPrice)
+                        @Html.TextBoxFor(m => m.secondPrice, "", new { @class = "form-control", @placeholder = "secondPrice" })
+                        @Html.ValidationMessageFor(m => m.secondPrice, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.firstClassSeats)
+                        @Html.TextBoxFor(m => m.firstClassSeats, "", new { @class = "form-control", @placeholder = "firstClassSeats" })
+                        @Html.ValidationMessageFor(m => m.firstClassSeats, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.secondClassSeats)
+                        @Html.TextBoxFor(m => m.secondClassSeats, "", new { @class = "form-control", @placeholder = "secondClassSeats" })
+                        @Html.ValidationMessageFor(m => m.secondClassSeats, "", new { @class = "badge badge-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.firstPrice)
+                        @Html.TextBoxFor(m => m.firstPrice, "", new { @class = "form-control", @placeholder = "firstPrice" })
+                        @Html.ValidationMessageFor(m => m.firstPrice, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                </div>
+                <div class="container" style="padding-left:130px;">
+                    <button class=" btn-success" style="padding:10px!important;">Submit</button>
+
+                </div>
+            </div>
+          
+
+        }
+
+
+
+    </form>
+   
 </body>
 </html>
